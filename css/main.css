@@ -430,10 +430,21 @@ sup > a::before,
   -o-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
-.navbar .dropdown-collapse,
-.top-nav-collapse,
-.navbar-col-show {
-  background-color: var(--navbar-bg-color);
+@supports (-webkit-backdrop-filter: blur(3px)) or (backdrop-filter: blur(3px)) {
+  .navbar .dropdown-collapse,
+  .top-nav-collapse,
+  .navbar-col-show {
+    background: rgba(47,65,84,0.7);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+  }
+}
+@supports not ((-webkit-backdrop-filter: blur(3px)) or (backdrop-filter: blur(3px))) {
+  .navbar .dropdown-collapse,
+  .top-nav-collapse,
+  .navbar-col-show {
+    background: #2f4154;
+  }
 }
 @media (max-width: 767px) {
   .navbar {
@@ -889,6 +900,22 @@ i.iconfont {
     filter: brightness(0.9);
     transition: filter 0.2s ease-in-out;
   }
+  @supports (-webkit-backdrop-filter: blur(3px)) or (backdrop-filter: blur(3px)) {
+    :root:not([data-user-color-scheme]) .navbar .dropdown-collapse,
+    :root:not([data-user-color-scheme]) .top-nav-collapse,
+    :root:not([data-user-color-scheme]) .navbar-col-show {
+      background: rgba(31,49,68,0.7);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+    }
+  }
+  @supports not ((-webkit-backdrop-filter: blur(3px)) or (backdrop-filter: blur(3px))) {
+    :root:not([data-user-color-scheme]) .navbar .dropdown-collapse,
+    :root:not([data-user-color-scheme]) .top-nav-collapse,
+    :root:not([data-user-color-scheme]) .navbar-col-show {
+      background: #1f3144;
+    }
+  }
   :root:not([data-user-color-scheme]) .license-box {
     background-color: rgba(62,75,94,0.35);
     transition: background-color 0.2s ease-in-out;
@@ -926,6 +953,22 @@ i.iconfont {
     -webkit-filter: brightness(0.9);
     filter: brightness(0.9);
     transition: filter 0.2s ease-in-out;
+  }
+  @supports (-webkit-backdrop-filter: blur(3px)) or (backdrop-filter: blur(3px)) {
+    [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
+    [data-user-color-scheme="dark"] .top-nav-collapse,
+    [data-user-color-scheme="dark"] .navbar-col-show {
+      background: rgba(31,49,68,0.7);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+    }
+  }
+  @supports not ((-webkit-backdrop-filter: blur(3px)) or (backdrop-filter: blur(3px))) {
+    [data-user-color-scheme="dark"] .navbar .dropdown-collapse,
+    [data-user-color-scheme="dark"] .top-nav-collapse,
+    [data-user-color-scheme="dark"] .navbar-col-show {
+      background: #1f3144;
+    }
   }
   [data-user-color-scheme="dark"] .license-box {
     background-color: rgba(62,75,94,0.35);
@@ -2238,4 +2281,46 @@ input[type=checkbox] {
   .link-text:only-child {
     margin-left: 1rem;
   }
+}
+.sub-menu {
+  display: none;
+  position: absolute;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  background-color: rgba(0,0,0,0.2);
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: auto;
+  height: auto;
+  box-shadow: -6px 6px 8px #000;
+  -webkit-animation: fadeInUp 0.3s 0.1s ease both;
+}
+.sub-menu .li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.sub-menu .li .a {
+  color: rgba(0,0,0,0.2);
+}
+.sub-menu li ul::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+.nav-item:hover .sub-menu {
+  display: block;
+}
+ul {
+  list-style: none;
+}
+li.nav-item {
+  padding: 0 15px;
 }
