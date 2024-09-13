@@ -8,13 +8,17 @@
     <link href="/2024/09/14/page/"/>
     <url>/2024/09/14/page/</url>
     
-    <content type="html"><![CDATA[<h2 id="Games101-自学笔记"><a href="#Games101-自学笔记" class="headerlink" title="Games101 自学笔记"></a>Games101 自学笔记</h2><h3 id="L1-2"><a href="#L1-2" class="headerlink" title="L1,2"></a>L1,2</h3><p>略</p><h3 id="L3-4-Transformation"><a href="#L3-4-Transformation" class="headerlink" title="L3,4 Transformation"></a>L3,4 Transformation</h3><p>为了使平移变换可以写成线性变换，所以我们要使用 4 维矩阵表示 3 维空间的向量、点和变换；</p><ol><li><p>平移矩阵</p><p>$\left[\begin{array}{c}<br> dx &amp; 0 &amp; 0 &amp; 0\<br> 0 &amp; dy &amp; 0 &amp; 0\<br> 0 &amp; 0 &amp; dz &amp; 0\<br> 0 &amp; 0 &amp; 0 &amp; 1<br> \end{array}\right]$</p></li><li><p>旋转矩阵</p></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="games101-自学笔记">Games101 自学笔记</h2><h3 id="l12">L1,2</h3><p>略</p><h3 id="l34-transformation">L3,4 Transformation</h3><p>为了使平移变换可以写成线性变换，所以我们要使用 4 维矩阵表示 3维空间的向量、点和变换；</p><ol type="1"><li><p>平移矩阵</p><p><span class="math display">\[\left[\begin{array}{c}dx &amp; 0 &amp; 0 &amp; 0\\0 &amp; dy &amp; 0 &amp; 0\\0 &amp; 0 &amp; dz &amp; 0\\0 &amp; 0 &amp; 0 &amp; 1\end{array}\right]\]</span></p></li><li><p>旋转矩阵</p></li></ol>]]></content>
     
     
     
     <tags>
       
-      <tag>notes CG Games101</tag>
+      <tag>notes</tag>
+      
+      <tag>CG</tag>
+      
+      <tag>Games101</tag>
       
     </tags>
     
@@ -27,7 +31,7 @@
     <link href="/2024/09/10/first-blog/"/>
     <url>/2024/09/10/first-blog/</url>
     
-    <content type="html"><![CDATA[<h1 id="My-First-Blog-Using-Hexo"><a href="#My-First-Blog-Using-Hexo" class="headerlink" title="My First Blog Using Hexo!"></a>My First Blog Using Hexo!</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="my-first-blog-using-hexo">My First Blog Using Hexo!</h1>]]></content>
     
     
     
