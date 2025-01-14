@@ -5,10 +5,10 @@
   
   <entry>
     <title>linear-algebra</title>
-    <link href="/2025/01/14/linear-algebra/index/"/>
-    <url>/2025/01/14/linear-algebra/index/</url>
+    <link href="/2025/01/14/linear-algebra/linear-algebra/"/>
+    <url>/2025/01/14/linear-algebra/linear-algebra/</url>
     
-    <content type="html"><![CDATA[<h2 id="unit-1-vectors-and-matrices">Unit 1: Vectors and Matrices</h2><h3 id="the-geometry-of-linear-equations">1.1 The Geometry of LinearEquations</h3><h4 id="what-is-a-matrix">What is a matrix?</h4><ul><li><p>a coefficient view(线性方程组的系数):</p><p><span class="math display">\[\begin{cases}2x - y = 0\\-x + 2y = 3\end{cases}\quad\Rightarrow  \quad  \begin{bmatrix}  2 &amp; -1\\  -1 &amp; 2  \end{bmatrix}  \begin{bmatrix}  x\\  y  \end{bmatrix}  =  \begin{bmatrix}  0\\  3  \end{bmatrix}\]</span></p></li><li><p>a row view(多条线性方程的函数图像): <spanclass="math inline">\(\begin{cases}2x - y = 0\\-x + 2y = 3\end{cases}\)</span></p><p><img src="./images/u1/p1_1_row_view.svg" /></p></li><li><p>a column view:</p><p>the linear combination of vectors(许多向量的线性组合)</p><p><span class="math display">\[\begin{bmatrix}2\\-1\end{bmatrix}x+\begin{bmatrix}-1\\2\end{bmatrix}y=\begin{bmatrix}0\\3\end{bmatrix}\]</span></p></li><li><p><em>the basis transformation of the space</em>(这一部分将在 Unit3中的线性变换中给出更详细的解释，但我们应该在一开始就有这样的intuition)</p><video src="./python/media/BasisTransform.mp4" autoplay="true" controls="controls" width="100%"></video></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="unit-1-vectors-and-matrices">Unit 1: Vectors and Matrices</h2><h3 id="the-geometry-of-linear-equations">1.1 The Geometry of LinearEquations</h3><h4 id="what-is-a-matrix">What is a matrix?</h4><ul><li><p>a coefficient view(线性方程组的系数):</p><p><span class="math display">\[\begin{cases}2x - y = 0\\-x + 2y = 3\end{cases}\quad\Rightarrow  \quad  \begin{bmatrix}  2 &amp; -1\\  -1 &amp; 2  \end{bmatrix}  \begin{bmatrix}  x\\  y  \end{bmatrix}  =  \begin{bmatrix}  0\\  3  \end{bmatrix}\]</span></p></li><li><p>a row view(多条线性方程的函数图像): <spanclass="math inline">\(\begin{cases}2x - y = 0\\-x + 2y = 3\end{cases}\)</span></p><figure><img src="images/u1/p1_1_row_view.svg" alt="row_view" /><figcaption aria-hidden="true">row_view</figcaption></figure></li><li><p>a column view:</p><p>the linear combination of vectors(许多向量的线性组合)</p><p><span class="math display">\[\begin{bmatrix}2\\-1\end{bmatrix}x+\begin{bmatrix}-1\\2\end{bmatrix}y=\begin{bmatrix}0\\3\end{bmatrix}\]</span></p></li><li><p><em>the basis transformation of the space</em>(这一部分将在 Unit3中的线性变换中给出更详细的解释，但我们应该在一开始就有这样的intuition)</p><video src="./python/media/BasisTransform.mp4" autoplay="true" controls="controls" width="100%"></video></li></ul>]]></content>
     
     
     
@@ -72,8 +72,8 @@
   
   <entry>
     <title>first-blog</title>
-    <link href="/2024/09/10/first-blog/"/>
-    <url>/2024/09/10/first-blog/</url>
+    <link href="/2024/09/10/first-blog/first-blog/"/>
+    <url>/2024/09/10/first-blog/first-blog/</url>
     
     <content type="html"><![CDATA[<h1 id="my-first-blog-using-hexo">My First Blog Using Hexo!</h1>]]></content>
     
