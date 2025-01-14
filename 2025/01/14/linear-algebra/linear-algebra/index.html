@@ -19,16 +19,16 @@
   <meta name="author" content="Chang Leo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Unit 1: Vectors and Matrices 1.1 The Geometry of Linear Equations What is a matrix?  a coefficient view(线性方程组的系数): \[ \begin{cases} 2x - y &#x3D; 0\\ -x + 2y &#x3D; 3 \end{cases} \quad \Rightarrow">
+    <meta name="description" content="Preface The note mainly referenced to MIT 18.06 Linear Algebra, 3blue1brown&#39;s Essence of Linear Algebra, and of course, the course of Linear Algebra I in ShanghaiTech University. Unit 1: Vectors">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linear-algebra">
+<meta property="og:title" content="线性代数笔记">
 <meta property="og:url" content="https://lceoliu.github.io/2025/01/14/linear-algebra/linear-algebra/index.html">
 <meta property="og:site_name" content="Chang&#39;s Blog">
-<meta property="og:description" content="Unit 1: Vectors and Matrices 1.1 The Geometry of Linear Equations What is a matrix?  a coefficient view(线性方程组的系数): \[ \begin{cases} 2x - y &#x3D; 0\\ -x + 2y &#x3D; 3 \end{cases} \quad \Rightarrow">
+<meta property="og:description" content="Preface The note mainly referenced to MIT 18.06 Linear Algebra, 3blue1brown&#39;s Essence of Linear Algebra, and of course, the course of Linear Algebra I in ShanghaiTech University. Unit 1: Vectors">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/p1_1_row_view.svg">
 <meta property="article:published_time" content="2025-01-14T05:01:22.000Z">
-<meta property="article:modified_time" content="2025-01-14T19:55:43.340Z">
+<meta property="article:modified_time" content="2025-01-14T20:50:50.454Z">
 <meta property="article:author" content="Chang Leo">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="math">
@@ -37,7 +37,7 @@
   
   
   
-  <title>linear-algebra - Chang&#39;s Blog</title>
+  <title>线性代数笔记 - Chang&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -268,7 +268,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="linear-algebra"></span>
+            <span id="subtitle" data-typed-text="线性代数笔记"></span>
           
         </div>
 
@@ -291,7 +291,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          138 字
+          627 字
         
       </span>
     
@@ -302,7 +302,7 @@
         
         
         
-          2 分钟
+          6 分钟
         
       </span>
     
@@ -348,12 +348,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">linear-algebra</h1>
+            <h1 id="seo-header">线性代数笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="unit-1-vectors-and-matrices">Unit 1: Vectors and Matrices</h2>
+                <h2 id="preface">Preface</h2>
+<p>The note mainly referenced to <a target="_blank" rel="noopener" href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/">MIT
+18.06 Linear Algebra</a>, <a target="_blank" rel="noopener" href="https://space.bilibili.com/88461692/lists/1528927?type=series">3blue1brown's
+Essence of Linear Algebra</a>, and of course, <a target="_blank" rel="noopener" href="https://www.skodleracks.co.uk/">the course of Linear Algebra I in
+ShanghaiTech University</a>.</p>
+<h2 id="unit-1-vectors-and-matrices">Unit 1: Vectors and Matrices</h2>
 <h3 id="the-geometry-of-linear-equations">1.1 The Geometry of Linear
 Equations</h3>
 <h4 id="what-is-a-matrix">What is a matrix?</h4>
@@ -412,6 +417,62 @@ intuition)</p>
 <video src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/BasisTransform.mp4" autoplay="true" controls="controls" width="100%">
 </video></li>
 </ul>
+<h3 id="elimination">1.2 Elimination</h3>
+<h4 id="gaussian-elimination高斯消元法">Gaussian
+Elimination(高斯消元法)</h4>
+<p>所谓高斯消元法，其实可以看作是初中生都会的求解多元一次方程组:</p>
+<p>e.g.</p>
+<p><span class="math display">\[
+\left\{
+\begin{array}{rcl}
+  x &amp;+ ~2y + z &amp;= 2 \\
+  3x &amp;+ ~8y + z &amp;= 12 \\
+     &amp; \quad 4y + z &amp;= 2
+\end{array}
+\right.
+\Rightarrow
+\left[
+\begin{array}{ccc|c}
+1 &amp; 2 &amp; 1 &amp; 2 \\
+3 &amp; 8 &amp; 1 &amp; 12 \\
+0 &amp; 4 &amp; 1 &amp; 2
+\end{array}
+\right]
+\]</span></p>
+<p>这里，我们把方程组等号左边的系数和右边的常数写在一个矩阵中，这个矩阵称为增广矩阵(Augmented
+Matrix)。</p>
+<p>我们应该如何求解这个方程组呢？只看左边的方程组，最直接的思路就是消元法，用第二个方程减去第一个方程，这样就消去了<span class="math inline">\(z\)</span>，再通过第三个方程得到<span class="math inline">\(y\)</span>和<span class="math inline">\(z\)</span>的关系式，最后解出所有的未知数。</p>
+<p>高斯消元法的本质就是这样，只不过我们最好按照更加固定的步骤来进行，保证对一切方程组都能按部就班地求解(有了按部就班的方法，剩下的计算就是计算机的活了)。</p>
+<p>具体的步骤如下:</p>
+<ul>
+<li><p>Step 1:
+从当前行(第一行)开始，找到第一个非零元素，称为主元素(Pivot)，如果主元素为
+0，则交换行，使得主元素不为 0。</p>
+<p><span class="math display">\[
+\left[
+\begin{array}{ccc|c}
+\overset{\text{Pivot}}{\fcolorbox{red}{white}{1}} &amp; 2 &amp; 1 &amp;
+2 \\
+3 &amp; 8 &amp; 1 &amp; 12 \\
+0 &amp; 4 &amp; 1 &amp; 2
+\end{array}
+\right]
+\]</span></p></li>
+<li><p>Step 2: 用主元素消去下面的元素，使得下面每一行、同一列(Pivot
+column)的元素为 0，其他列的元素则加上/减去相应倍数的第一行元素。</p>
+<p><span class="math display">\[
+\underset{r_3&#39;=r_3}{\overset{r_2&#39;=r_2-3r_1}{\longrightarrow}}
+\left[
+\begin{array}{ccc|c}
+1 &amp; 2 &amp; 1 &amp; 2 \\
+0 &amp; 2 &amp; -2 &amp; 6 \\
+0 &amp; 4 &amp; 1 &amp; 2
+\end{array}
+\right]
+\]</span></p></li>
+<li><p>Step 3: 重复 Step 1 和 Step 2，直到所有的主元素都为
+1，且主元素下面的元素都为 0。</p></li>
+</ul>
 
                 
               </div>
@@ -438,7 +499,7 @@ intuition)</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>linear-algebra</div>
+      <div>线性代数笔记</div>
       <div>https://lceoliu.github.io/2025/01/14/linear-algebra/linear-algebra/</div>
     </div>
     <div class="license-meta">
