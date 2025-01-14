@@ -19,24 +19,25 @@
   <meta name="author" content="Chang Leo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="写在最前面： 记录一下玩过的许多优秀独立游戏，并分析一下有趣的点，希望自己能长期更新。 每个游戏都会给出一个我自创的打分规则，规则如下：  玩法  创新性 重玩性 自由度 操作感 沉浸感 细节设计  画面  风格化 统一程度 画面质量  音乐  适配度 全局影响 情绪影响  剧情  创新度 人物刻画 背景完善程度 情绪影响">
+    <meta name="description" content="Unit 1: Vectors and Matrices 1.1 The Geometry of Linear Equations What is a matrix?  a coefficient view(线性方程组的系数): \[ \begin{cases} 2x - y &#x3D; 0\\ -x + 2y &#x3D; 3 \end{cases} \quad \Rightarrow">
 <meta property="og:type" content="article">
-<meta property="og:title" content="独立游戏品鉴与分析">
-<meta property="og:url" content="https://lceoliu.github.io/2024/09/30/page-1/index.html">
+<meta property="og:title" content="linear-algebra">
+<meta property="og:url" content="https://lceoliu.github.io/2025/01/14/linear-algebra/index/index.html">
 <meta property="og:site_name" content="Chang&#39;s Blog">
-<meta property="og:description" content="写在最前面： 记录一下玩过的许多优秀独立游戏，并分析一下有趣的点，希望自己能长期更新。 每个游戏都会给出一个我自创的打分规则，规则如下：  玩法  创新性 重玩性 自由度 操作感 沉浸感 细节设计  画面  风格化 统一程度 画面质量  音乐  适配度 全局影响 情绪影响  剧情  创新度 人物刻画 背景完善程度 情绪影响">
+<meta property="og:description" content="Unit 1: Vectors and Matrices 1.1 The Geometry of Linear Equations What is a matrix?  a coefficient view(线性方程组的系数): \[ \begin{cases} 2x - y &#x3D; 0\\ -x + 2y &#x3D; 3 \end{cases} \quad \Rightarrow">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-09-30T08:39:15.139Z">
-<meta property="article:modified_time" content="2024-09-30T10:33:39.576Z">
+<meta property="og:image" content="https://lceoliu.github.io/2025/01/14/linear-algebra/index/images/u1/p1_1_row_view.svg">
+<meta property="article:published_time" content="2025-01-14T05:01:22.000Z">
+<meta property="article:modified_time" content="2025-01-14T06:36:08.448Z">
 <meta property="article:author" content="Chang Leo">
-<meta property="article:tag" content="GameDev">
-<meta property="article:tag" content="随笔">
-<meta property="article:tag" content="独立游戏">
+<meta property="article:tag" content="notes">
+<meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lceoliu.github.io/2025/01/14/linear-algebra/index/images/u1/p1_1_row_view.svg">
   
   
   
-  <title>独立游戏品鉴与分析 - Chang&#39;s Blog</title>
+  <title>linear-algebra - Chang&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -267,7 +268,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="独立游戏品鉴与分析"></span>
+            <span id="subtitle" data-typed-text="linear-algebra"></span>
           
         </div>
 
@@ -278,8 +279,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-09-30 16:39" pubdate>
-          2024年9月30日 下午
+        <time datetime="2025-01-14 13:01" pubdate>
+          2025年1月14日 下午
         </time>
       </span>
     
@@ -290,7 +291,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          169 字
+          138 字
         
       </span>
     
@@ -347,50 +348,71 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">独立游戏品鉴与分析</h1>
+            <h1 id="seo-header">linear-algebra</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="写在最前面">写在最前面：</h2>
-<p>记录一下玩过的许多优秀独立游戏，并分析一下有趣的点，希望自己能长期更新。</p>
-<p>每个游戏都会给出一个我自创的打分规则，规则如下：</p>
-<ol type="1">
-<li>玩法
+                <h2 id="unit-1-vectors-and-matrices">Unit 1: Vectors and Matrices</h2>
+<h3 id="the-geometry-of-linear-equations">1.1 The Geometry of Linear
+Equations</h3>
+<h4 id="what-is-a-matrix">What is a matrix?</h4>
 <ul>
-<li>创新性</li>
-<li>重玩性</li>
-<li>自由度</li>
-<li>操作感</li>
-<li>沉浸感</li>
-<li>细节设计</li>
-</ul></li>
-<li>画面
-<ul>
-<li>风格化</li>
-<li>统一程度</li>
-<li>画面质量</li>
-</ul></li>
-<li>音乐
-<ul>
-<li>适配度</li>
-<li>全局影响</li>
-<li>情绪影响</li>
-</ul></li>
-<li>剧情
-<ul>
-<li>创新度</li>
-<li>人物刻画</li>
-<li>背景完善程度</li>
-<li>情绪影响</li>
-<li></li>
-</ul></li>
-</ol>
-<p>P.S.以下所有品鉴纯属个人口味，也许某天再回来看这时候写的分析也会觉得很愚蠢</p>
-<h3 id="luck-be-a-landlord-幸运房东">Luck be a Landlord (幸运房东)</h3>
-<h3 id="shapez.io">Shapez.io</h3>
-<h3 id="vampire-survivors">Vampire Survivors</h3>
-<h3 id="section"></h3>
+<li><p>a coefficient view(线性方程组的系数):</p>
+<p><span class="math display">\[
+\begin{cases}
+2x - y = 0\\
+-x + 2y = 3
+\end{cases}
+\quad
+\Rightarrow
+  \quad
+  \begin{bmatrix}
+  2 &amp; -1\\
+  -1 &amp; 2
+  \end{bmatrix}
+  \begin{bmatrix}
+  x\\
+  y
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  0\\
+  3
+  \end{bmatrix}
+\]</span></p></li>
+<li><p>a row view(多条线性方程的函数图像): <span
+class="math inline">\(\begin{cases}
+2x - y = 0\\
+-x + 2y = 3
+\end{cases}\)</span></p>
+<p><img src="./images/u1/p1_1_row_view.svg" srcset="/img/loading.gif" lazyload /></p></li>
+<li><p>a column view:</p>
+<p>the linear combination of vectors(许多向量的线性组合)</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+2\\
+-1
+\end{bmatrix}
+x
++
+\begin{bmatrix}
+-1\\
+2
+\end{bmatrix}
+y
+=
+\begin{bmatrix}
+0\\
+3
+\end{bmatrix}
+\]</span></p></li>
+<li><p><em>the basis transformation of the space</em>(这一部分将在 Unit3
+中的线性变换中给出更详细的解释，但我们应该在一开始就有这样的
+intuition)</p>
+<video src="./python/media/BasisTransform.mp4" autoplay="true" controls="controls" width="100%">
+</video></li>
+</ul>
 
                 
               </div>
@@ -403,11 +425,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/GameDev/" class="print-no-link">#GameDev</a>
+        <a href="/tags/notes/" class="print-no-link">#notes</a>
       
-        <a href="/tags/%E9%9A%8F%E7%AC%94/" class="print-no-link">#随笔</a>
-      
-        <a href="/tags/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/" class="print-no-link">#独立游戏</a>
+        <a href="/tags/math/" class="print-no-link">#math</a>
       
     </div>
   
@@ -419,8 +439,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>独立游戏品鉴与分析</div>
-      <div>https://lceoliu.github.io/2024/09/30/page-1/</div>
+      <div>linear-algebra</div>
+      <div>https://lceoliu.github.io/2025/01/14/linear-algebra/index/</div>
     </div>
     <div class="license-meta">
       
@@ -432,7 +452,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年9月30日</div>
+          <div>2025年1月14日</div>
         </div>
       
       
@@ -468,8 +488,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/09/14/page/" title="Games101自学笔记">
-                        <span class="hidden-mobile">Games101自学笔记</span>
+                      <a href="/2024/09/30/page-1/page-1/" title="独立游戏品鉴与分析">
+                        <span class="hidden-mobile">独立游戏品鉴与分析</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
