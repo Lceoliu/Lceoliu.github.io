@@ -19,12 +19,12 @@
   <meta name="author" content="Chang Leo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Unit 1: Vectors and Matrices1.1 The Geometry of Linear EquationsWhat is a matrix? a coefficient view(线性方程组的系数): $$\begin{cases}2x - y &#x3D; 0\-x + 2y &#x3D; 3\end{cases}\quad\Rightarrow  \quad  \begi">
+    <meta name="description" content="Unit 1: Vectors and Matrices 1.1 The Geometry of Linear Equations What is a matrix?  a coefficient view(线性方程组的系数): \[ \begin{cases} 2x - y &#x3D; 0\\ -x + 2y &#x3D; 3 \end{cases} \quad \Rightarrow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linear-algebra">
 <meta property="og:url" content="https://lceoliu.github.io/2025/01/14/linear-algebra/linear-algebra/index.html">
 <meta property="og:site_name" content="Chang&#39;s Blog">
-<meta property="og:description" content="Unit 1: Vectors and Matrices1.1 The Geometry of Linear EquationsWhat is a matrix? a coefficient view(线性方程组的系数): $$\begin{cases}2x - y &#x3D; 0\-x + 2y &#x3D; 3\end{cases}\quad\Rightarrow  \quad  \begi">
+<meta property="og:description" content="Unit 1: Vectors and Matrices 1.1 The Geometry of Linear Equations What is a matrix?  a coefficient view(线性方程组的系数): \[ \begin{cases} 2x - y &#x3D; 0\\ -x + 2y &#x3D; 3 \end{cases} \quad \Rightarrow">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/p1_1_row_view.svg">
 <meta property="article:published_time" content="2025-01-14T05:01:22.000Z">
@@ -291,7 +291,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          142 字
+          138 字
         
       </span>
     
@@ -353,20 +353,64 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Unit-1-Vectors-and-Matrices"><a href="#Unit-1-Vectors-and-Matrices" class="headerlink" title="Unit 1: Vectors and Matrices"></a>Unit 1: Vectors and Matrices</h2><h3 id="1-1-The-Geometry-of-Linear-Equations"><a href="#1-1-The-Geometry-of-Linear-Equations" class="headerlink" title="1.1 The Geometry of Linear Equations"></a>1.1 The Geometry of Linear Equations</h3><h4 id="What-is-a-matrix"><a href="#What-is-a-matrix" class="headerlink" title="What is a matrix?"></a>What is a matrix?</h4><ul>
+                <h2 id="unit-1-vectors-and-matrices">Unit 1: Vectors and Matrices</h2>
+<h3 id="the-geometry-of-linear-equations">1.1 The Geometry of Linear
+Equations</h3>
+<h4 id="what-is-a-matrix">What is a matrix?</h4>
+<ul>
 <li><p>a coefficient view(线性方程组的系数):</p>
-<h1 id="begin-cases-2x-y-0-x-2y-3-end-cases-quad-Rightarrow-quad-begin-bmatrix-2-1-1-2-end-bmatrix-begin-bmatrix-x-y-end-bmatrix"><a href="#begin-cases-2x-y-0-x-2y-3-end-cases-quad-Rightarrow-quad-begin-bmatrix-2-1-1-2-end-bmatrix-begin-bmatrix-x-y-end-bmatrix" class="headerlink" title="$$\begin{cases}2x - y &#x3D; 0\-x + 2y &#x3D; 3\end{cases}\quad\Rightarrow  \quad  \begin{bmatrix}  2 &amp; -1\  -1 &amp; 2  \end{bmatrix}  \begin{bmatrix}  x\  y  \end{bmatrix}"></a>$$<br>\begin{cases}<br>2x - y &#x3D; 0\<br>-x + 2y &#x3D; 3<br>\end{cases}<br>\quad<br>\Rightarrow<br>  \quad<br>  \begin{bmatrix}<br>  2 &amp; -1\<br>  -1 &amp; 2<br>  \end{bmatrix}<br>  \begin{bmatrix}<br>  x\<br>  y<br>  \end{bmatrix}</h1><p>  \begin{bmatrix}<br>  0\<br>  3<br>  \end{bmatrix}<br>$$</p>
-</li>
-<li><p>a row view(多条线性方程的函数图像):<br>$\begin{cases}<br>2x - y &#x3D; 0\<br>-x + 2y &#x3D; 3<br>\end{cases}$</p>
-<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/p1_1_row_view.svg" srcset="/img/loading.gif" lazyload></p>
-</li>
+<p><span class="math display">\[
+\begin{cases}
+2x - y = 0\\
+-x + 2y = 3
+\end{cases}
+\quad
+\Rightarrow
+  \quad
+  \begin{bmatrix}
+  2 &amp; -1\\
+  -1 &amp; 2
+  \end{bmatrix}
+  \begin{bmatrix}
+  x\\
+  y
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+  0\\
+  3
+  \end{bmatrix}
+\]</span></p></li>
+<li><p>a row view(多条线性方程的函数图像): <span class="math inline">\(\begin{cases}
+2x - y = 0\\
+-x + 2y = 3
+\end{cases}\)</span></p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/p1_1_row_view.svg" srcset="/img/loading.gif" lazyload></p></li>
 <li><p>a column view:</p>
 <p>the linear combination of vectors(许多向量的线性组合)</p>
-<h1 id="begin-bmatrix-2-1-end-bmatrix-x-begin-bmatrix-1-2-end-bmatrix-y"><a href="#begin-bmatrix-2-1-end-bmatrix-x-begin-bmatrix-1-2-end-bmatrix-y" class="headerlink" title="$$\begin{bmatrix}2\-1\end{bmatrix}x+\begin{bmatrix}-1\2\end{bmatrix}y"></a>$$<br>\begin{bmatrix}<br>2\<br>-1<br>\end{bmatrix}<br>x<br>+<br>\begin{bmatrix}<br>-1\<br>2<br>\end{bmatrix}<br>y</h1><p>\begin{bmatrix}<br>0\<br>3<br>\end{bmatrix}<br>$$</p>
-</li>
-<li><p><em>the basis transformation of the space</em>(这一部分将在 Unit3 中的线性变换中给出更详细的解释，但我们应该在一开始就有这样的 intuition)</p>
-<p><video src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/BasisTransform.mp4" autoplay="true" controls="controls" width="100%"></video></p>
-</li>
+<p><span class="math display">\[
+\begin{bmatrix}
+2\\
+-1
+\end{bmatrix}
+x
++
+\begin{bmatrix}
+-1\\
+2
+\end{bmatrix}
+y
+=
+\begin{bmatrix}
+0\\
+3
+\end{bmatrix}
+\]</span></p></li>
+<li><p><em>the basis transformation of the space</em>(这一部分将在 Unit3
+中的线性变换中给出更详细的解释，但我们应该在一开始就有这样的
+intuition)</p>
+<video src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/BasisTransform.mp4" autoplay="true" controls="controls" width="100%">
+</video></li>
 </ul>
 
                 
