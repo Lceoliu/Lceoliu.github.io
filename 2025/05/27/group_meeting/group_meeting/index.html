@@ -19,19 +19,22 @@
   <meta name="author" content="Chang Leo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="写在前面 苦逼组会报告记录 2025.03.01 上周工作汇报  熟悉手语项目开发流程 CTC 算法，Non-Peaky CTC 算法 VAP（Visual Alignment Pretrain）论文研究  Visual Alignment Pre-training for Sign Language Translation 下周工作内容  复现和测试 VAP 的方法">
+    <meta name="description" content="写在前面 苦逼组会报告记录，等哪天闲了把 Notion 的链接和图片全部导出成 Markdown 搬过来 2025.03.01 上周工作汇报  熟悉手语项目开发流程 CTC 算法，Non-Peaky CTC 算法 VAP（Visual Alignment Pretrain）论文研究  Visual Alignment Pre-training for Sign Languag">
 <meta property="og:type" content="article">
 <meta property="og:title" content="组会报告汇总">
 <meta property="og:url" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting/index.html">
 <meta property="og:site_name" content="Chang&#39;s Blog">
-<meta property="og:description" content="写在前面 苦逼组会报告记录 2025.03.01 上周工作汇报  熟悉手语项目开发流程 CTC 算法，Non-Peaky CTC 算法 VAP（Visual Alignment Pretrain）论文研究  Visual Alignment Pre-training for Sign Language Translation 下周工作内容  复现和测试 VAP 的方法">
+<meta property="og:description" content="写在前面 苦逼组会报告记录，等哪天闲了把 Notion 的链接和图片全部导出成 Markdown 搬过来 2025.03.01 上周工作汇报  熟悉手语项目开发流程 CTC 算法，Non-Peaky CTC 算法 VAP（Visual Alignment Pretrain）论文研究  Visual Alignment Pre-training for Sign Languag">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:1c0020c6-6696-4f3d-a3e2-1c83a6d0e5ec:image.png">
 <meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:ac93bbe9-8253-4704-a808-f07f0e3dd62b:image.png">
 <meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:f0708809-1d9d-43f5-a626-6ae1fccca918:image.png">
 <meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:92c452e2-bf0a-4377-88e8-db4007cebe7a:image.png">
+<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:ee7a4824-02f2-461b-8c6b-aaf1db863e87:image.png">
+<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:2e063b2e-18c5-4dca-b6e3-3538ecb21ce1:image.png">
+<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:ab538ce2-ce45-4e6c-8f40-b66422076a26:image.png">
 <meta property="article:published_time" content="2025-05-26T17:23:32.000Z">
-<meta property="article:modified_time" content="2025-05-26T17:29:07.724Z">
+<meta property="article:modified_time" content="2025-05-26T17:36:38.466Z">
 <meta property="article:author" content="Chang Leo">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="组会">
@@ -294,7 +297,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          285 字
+          327 字
         
       </span>
     
@@ -357,7 +360,8 @@
               <div class="markdown-body">
                 
                 <h3 id="写在前面">写在前面</h3>
-<p>苦逼组会报告记录</p>
+<p>苦逼组会报告记录，等哪天闲了把 Notion 的链接和图片全部导出成 Markdown
+搬过来</p>
 <h2 id="section">2025.03.01</h2>
 <h3 id="上周工作汇报">上周工作汇报</h3>
 <ol type="1">
@@ -386,7 +390,7 @@ Alignment Pre-training for Sign Language Translation</a></p>
 <li>看下改过 loss 的训练效果</li>
 </ul>
 <h2 id="section-2">2025.03.14</h2>
-<h2 id="上一周的工作">上一周的工作</h2>
+<h3 id="上一周的工作">上一周的工作</h3>
 <ul>
 <li>验证了简单的 label priors（多除一个先验概率）对 CTC
 训练的作用很小（至少对 loss 来说，也可能是调的参数不对）</li>
@@ -420,11 +424,32 @@ embedding，那可能有的词会被分开，长度不一样</li>
 <ul>
 <li>尝试使用<strong>Sentence-BERT</strong></li>
 </ul>
-<h2 id="下一周工作">下一周工作</h2>
+<h3 id="下一周工作">下一周工作</h3>
 <ul>
 <li>也许可以再调调 label priors 方法的参数</li>
 <li>用 sentence-bert 把现在的单词本 encoding 一遍，然后开始使用 VAP
 的方法训练</li>
+</ul>
+<h2 id="section-3">2025.03.21</h2>
+<h3 id="上一周的工作-1">上一周的工作</h3>
+<ul>
+<li>VAP 训练</li>
+</ul>
+<figure>
+<img src="/2025/05/27/group_meeting/group_meeting//attachment:ee7a4824-02f2-461b-8c6b-aaf1db863e87:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<p>但实际切片效果不行</p>
+<figure>
+<img src="/2025/05/27/group_meeting/group_meeting//attachment:2e063b2e-18c5-4dca-b6e3-3538ecb21ce1:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<figure>
+<img src="/2025/05/27/group_meeting/group_meeting//attachment:ab538ce2-ce45-4e6c-8f40-b66422076a26:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<ul>
+<li>CTC</li>
 </ul>
 
                 
