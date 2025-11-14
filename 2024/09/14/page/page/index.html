@@ -19,31 +19,24 @@
   <meta name="author" content="Chang Leo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="写在前面 苦逼组会报告记录，等哪天闲了把 Notion 的链接和图片全部导出成 Markdown 搬过来 2025.03.01 上周工作汇报  熟悉手语项目开发流程 CTC 算法，Non-Peaky CTC 算法 VAP（Visual Alignment Pretrain）论文研究  Visual Alignment Pre-training for Sign Languag">
+    <meta name="description" content="Games101 自学笔记 L1,2 略  L3,4 Transformation 基础变换的矩阵形式 为了使平移变换可以写成线性变换，所以我们要使用 4 维矩阵表示 3 维空间的向量、点和变换； 我们把向量记为\[\begin{bmatrix} x\\  y\\  z\\  0\end{bmatrix}\]，把点记为\[\begin{bmatrix} x\\  y\\  z\">
 <meta property="og:type" content="article">
-<meta property="og:title" content="组会报告汇总">
-<meta property="og:url" content="https://lceoliu.github.io/2025/05/26/group_meeting/group_meeting/index.html">
+<meta property="og:title" content="Games101自学笔记">
+<meta property="og:url" content="https://lceoliu.github.io/2024/09/14/page/page/index.html">
 <meta property="og:site_name" content="Chang&#39;s Blog">
-<meta property="og:description" content="写在前面 苦逼组会报告记录，等哪天闲了把 Notion 的链接和图片全部导出成 Markdown 搬过来 2025.03.01 上周工作汇报  熟悉手语项目开发流程 CTC 算法，Non-Peaky CTC 算法 VAP（Visual Alignment Pretrain）论文研究  Visual Alignment Pre-training for Sign Languag">
+<meta property="og:description" content="Games101 自学笔记 L1,2 略  L3,4 Transformation 基础变换的矩阵形式 为了使平移变换可以写成线性变换，所以我们要使用 4 维矩阵表示 3 维空间的向量、点和变换； 我们把向量记为\[\begin{bmatrix} x\\  y\\  z\\  0\end{bmatrix}\]，把点记为\[\begin{bmatrix} x\\  y\\  z\">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:1c0020c6-6696-4f3d-a3e2-1c83a6d0e5ec:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:ac93bbe9-8253-4704-a808-f07f0e3dd62b:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:f0708809-1d9d-43f5-a626-6ae1fccca918:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:92c452e2-bf0a-4377-88e8-db4007cebe7a:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:ee7a4824-02f2-461b-8c6b-aaf1db863e87:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:2e063b2e-18c5-4dca-b6e3-3538ecb21ce1:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:ab538ce2-ce45-4e6c-8f40-b66422076a26:image.png">
-<meta property="article:published_time" content="2025-05-26T17:23:32.000Z">
-<meta property="article:modified_time" content="2025-05-26T17:36:38.466Z">
+<meta property="article:published_time" content="2024-09-14T08:26:48.000Z">
+<meta property="article:modified_time" content="2025-01-14T06:35:26.512Z">
 <meta property="article:author" content="Chang Leo">
 <meta property="article:tag" content="notes">
-<meta property="article:tag" content="组会">
+<meta property="article:tag" content="CG">
+<meta property="article:tag" content="Games101">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:1c0020c6-6696-4f3d-a3e2-1c83a6d0e5ec:image.png">
   
   
   
-  <title>组会报告汇总 - Chang&#39;s Blog</title>
+  <title>Games101自学笔记 - Chang&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -111,7 +104,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/node-tikzjax@latest/css/fonts.css" /><style>.tikzjax { display: block; text-align: center; user-select: none; }</style></head>
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head>
 
 
 <body>
@@ -274,7 +267,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="组会报告汇总"></span>
+            <span id="subtitle" data-typed-text="Games101自学笔记"></span>
           
         </div>
 
@@ -285,8 +278,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-05-26 10:23" pubdate>
-          2025年5月26日 上午
+        <time datetime="2024-09-14 01:26" pubdate>
+          2024年9月14日 凌晨
         </time>
       </span>
     
@@ -297,7 +290,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          327 字
+          401 字
         
       </span>
     
@@ -308,7 +301,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -354,103 +347,88 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">组会报告汇总</h1>
+            <h1 id="seo-header">Games101自学笔记</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="写在前面">写在前面</h3>
-<p>苦逼组会报告记录，等哪天闲了把 Notion 的链接和图片全部导出成 Markdown
-搬过来</p>
-<h2 id="section">2025.03.01</h2>
-<h3 id="上周工作汇报">上周工作汇报</h3>
+                <h2 id="games101-自学笔记">Games101 自学笔记</h2>
+<h3 id="l12">L1,2</h3>
+<p>略</p>
+<hr>
+<h3 id="l34-transformation">L3,4 Transformation</h3>
+<h4 id="基础变换的矩阵形式">基础变换的矩阵形式</h4>
+<p>为了使平移变换可以写成线性变换，所以我们要使用 4 维矩阵表示 3
+维空间的向量、点和变换；</p>
+<p>我们把向量记为<span class="math display">\[\begin{bmatrix}
+x\\  y\\  z\\  0\end{bmatrix}\]</span>，把点记为<span class="math display">\[\begin{bmatrix}
+x\\  y\\  z\\  1\end{bmatrix}\]</span>，是因为：</p>
+<ul>
+<li>向量平移后应与原向量无区别</li>
+<li>方便点的坐标统一（认为<span class="math display">\[\begin{bmatrix}
+x\\  y\\  z\\  1\end{bmatrix}\]</span>与<span class="math display">\[\begin{bmatrix}
+2x\\  2y\\  2z\\  2\end{bmatrix}\]</span>无区别）</li>
+</ul>
+<p>所以，我们可以得出所有基础变换的变换矩阵：</p>
 <ol type="1">
-<li>熟悉手语项目开发流程</li>
-<li>CTC 算法，Non-Peaky CTC 算法</li>
-<li>VAP（Visual Alignment Pretrain）论文研究</li>
+<li><p>平移矩阵</p>
+<p><span class="math display">\[
+\left[\begin{array}{c}
+1 &amp; 0 &amp; 0 &amp; dx\\
+0 &amp; 1 &amp; 0 &amp; dy\\
+0 &amp; 0 &amp; 1 &amp; dz\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span></p></li>
+<li><p>缩放矩阵</p></li>
 </ol>
-<p><a target="_blank" rel="noopener" href="https://www.notion.so/Visual-Alignment-Pre-training-for-Sign-Language-Translation-1a55661a96728019a0f7cb5db467699f?pvs=21">Visual
-Alignment Pre-training for Sign Language Translation</a></p>
-<h3 id="下周工作内容">下周工作内容</h3>
-<ol type="1">
-<li>复现和测试 VAP 的方法</li>
-<li>熟悉大模型的训练步骤</li>
+<p>​</p>
+<p><span class="math display">\[
+\left[\begin{array}{c}
+tx &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; ty &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; tz &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span></p>
+<ol start="3" type="1">
+<li><p>旋转矩阵（右手坐标系）</p>
+<ul>
+<li>绕 x 轴</li>
+</ul>
+<p><span class="math display">\[
+\left[\begin{array}{c}
+1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; \cos\theta &amp; -\sin\theta &amp; 0\\
+0 &amp; \sin\theta &amp; \cos\theta &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span></p>
+<ul>
+<li><p>绕 y 轴</p>
+<p><span class="math display">\[
+\left[\begin{array}{c}
+\cos\theta &amp; 0 &amp; \sin\theta &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+-\sin\theta &amp; 0 &amp; \cos\theta &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span></p></li>
+<li><p>绕 z 轴 <span class="math display">\[
+\left[\begin{array}{c}
+\cos\theta &amp; -\sin\theta &amp; 0 &amp; 0\\
+\sin\theta &amp; \cos\theta &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span></p></li>
+</ul></li>
 </ol>
-<h2 id="section-1">2025.03.08</h2>
-<h3 id="这周的工作">这周的工作</h3>
-<ul>
-<li>ctc 工作原理和尖峰的解决方案之一</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://www.notion.so/ctc-1af5661a9672800ba39cd75cce756b39?pvs=21">ctc</a></p>
-<ul>
-<li>代码实际测试（正在）</li>
-</ul>
-<h3 id="下周准备">下周准备</h3>
-<ul>
-<li>看下改过 loss 的训练效果</li>
-</ul>
-<h2 id="section-2">2025.03.14</h2>
-<h3 id="上一周的工作">上一周的工作</h3>
-<ul>
-<li>验证了简单的 label priors（多除一个先验概率）对 CTC
-训练的作用很小（至少对 loss 来说，也可能是调的参数不对）</li>
-</ul>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:1c0020c6-6696-4f3d-a3e2-1c83a6d0e5ec:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<ul>
-<li>实现了 VAP loss 的代码，但现有的 model pipeline
-需要一定程度的修改（整句话词 embedding，删去 QFormer，etc）</li>
-</ul>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:ac93bbe9-8253-4704-a808-f07f0e3dd62b:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<p>问题：</p>
-<ul>
-<li>用到的 mbart embedding 的分词和我们的分词肯定不太一样</li>
-<li>如果直接对我们的 gloss 词本
-embedding，那可能有的词会被分开，长度不一样</li>
-</ul>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:f0708809-1d9d-43f5-a626-6ae1fccca918:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:92c452e2-bf0a-4377-88e8-db4007cebe7a:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<ul>
-<li>尝试使用<strong>Sentence-BERT</strong></li>
-</ul>
-<h3 id="下一周工作">下一周工作</h3>
-<ul>
-<li>也许可以再调调 label priors 方法的参数</li>
-<li>用 sentence-bert 把现在的单词本 encoding 一遍，然后开始使用 VAP
-的方法训练</li>
-</ul>
-<h2 id="section-3">2025.03.21</h2>
-<h3 id="上一周的工作-1">上一周的工作</h3>
-<ul>
-<li>VAP 训练</li>
-</ul>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:ee7a4824-02f2-461b-8c6b-aaf1db863e87:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<p>但实际切片效果不行</p>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:2e063b2e-18c5-4dca-b6e3-3538ecb21ce1:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:ab538ce2-ce45-4e6c-8f40-b66422076a26:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<ul>
-<li>CTC</li>
-</ul>
+<hr>
+<h4 id="d-变换之-mvp-矩阵">3D 变换之 MVP 矩阵</h4>
+<p>MVP 矩阵，即
+Model(模型),View(视图),Projection(投影)三大变换矩阵，是将 3D
+模型转换为屏幕上的 2D 坐标的变换。</p>
 
                 
               </div>
@@ -465,7 +443,9 @@ embedding，那可能有的词会被分开，长度不一样</li>
       
         <a href="/tags/notes/" class="print-no-link">#notes</a>
       
-        <a href="/tags/%E7%BB%84%E4%BC%9A/" class="print-no-link">#组会</a>
+        <a href="/tags/CG/" class="print-no-link">#CG</a>
+      
+        <a href="/tags/Games101/" class="print-no-link">#Games101</a>
       
     </div>
   
@@ -477,8 +457,8 @@ embedding，那可能有的词会被分开，长度不一样</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>组会报告汇总</div>
-      <div>https://lceoliu.github.io/2025/05/26/group_meeting/group_meeting/</div>
+      <div>Games101自学笔记</div>
+      <div>https://lceoliu.github.io/2024/09/14/page/page/</div>
     </div>
     <div class="license-meta">
       
@@ -490,7 +470,7 @@ embedding，那可能有的词会被分开，长度不一样</li>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年5月26日</div>
+          <div>2024年9月14日</div>
         </div>
       
       
@@ -522,9 +502,9 @@ embedding，那可能有的词会被分开，长度不一样</li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/10/08/CS180-Proj3A/index/" title="CS180-Proj3A">
+                      <a href="/2024/09/30/page-1/page-1/" title="独立游戏品鉴与分析">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">CS180-Proj3A</span>
+                        <span class="hidden-mobile">独立游戏品鉴与分析</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -532,8 +512,8 @@ embedding，那可能有的词会被分开，长度不一样</li>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/01/13/linear-algebra/linear-algebra/" title="线性代数笔记">
-                        <span class="hidden-mobile">线性代数笔记</span>
+                      <a href="/2024/09/10/first-blog/first-blog/" title="first-blog">
+                        <span class="hidden-mobile">first-blog</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
