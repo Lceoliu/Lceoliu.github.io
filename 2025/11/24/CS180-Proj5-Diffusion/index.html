@@ -1,0 +1,958 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/lc.jpg">
+  <link rel="icon" href="/img/lc.jpg">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chang Leo">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="CS180-Proj5-Diffusion Deliverables Seeds: 42 Part 0: Setup  My prompts:  a photo of the Great Wall a photo of beautiful woman a photo of a car a photo of a cat an oil painting of people aro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS180-Proj5-Diffusion">
+<meta property="og:url" content="https://lceoliu.github.io/2025/11/24/CS180-Proj5-Diffusion/index.html">
+<meta property="og:site_name" content="Chang&#39;s Blog">
+<meta property="og:description" content="CS180-Proj5-Diffusion Deliverables Seeds: 42 Part 0: Setup  My prompts:  a photo of the Great Wall a photo of beautiful woman a photo of a car a photo of a cat an oil painting of people aro">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124025005.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124025854.png">
+<meta property="og:image" content="https://cal-cs180.github.io/fa24/hw/proj5/assets/campanile.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124030459.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124030901.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124031234.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124031655.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124031957.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124032348.png">
+<meta property="og:image" content="https://i.pinimg.com/originals/76/e5/d5/76e5d55d0c8c6ec65135b42a2c5cbd98.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124032832.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180myImage1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124033113.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180myImage2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124034526.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124034751.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124035336.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124040337.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124040744.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124041244.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124041345.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124041631.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124042038.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124042257.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124042535.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124043123.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124043252.png">
+<meta property="article:published_time" content="2025-11-25T02:12:45.000Z">
+<meta property="article:modified_time" content="2025-11-25T02:13:13.533Z">
+<meta property="article:author" content="Chang Leo">
+<meta property="article:tag" content="notes">
+<meta property="article:tag" content="CS180">
+<meta property="article:tag" content="CV">
+<meta property="article:tag" content="Diffusion">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124025005.png">
+  
+  
+  
+  <title>CS180-Proj5-Diffusion - Chang&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lceoliu.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"9HyUa6m2LMnz9pU9dVwuqyEV-gzGzoHsz","app_key":"LHEhgO1t44IynNOlOy97ZJT1","server_url":null,"path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/node-tikzjax@latest/css/fonts.css" /><style>.tikzjax { display: block; text-align: center; user-select: none; }</style></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav
+  id="navbar"
+  class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar"
+>
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Chang</strong>
+    </a>
+
+    <button
+      id="navbar-toggler-btn"
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/">
+            <i class="iconfont icon-home-fill"></i> 首页</a
+          >
+          <!--以上的部分是一级导航的部分-->
+          <!--这里判断有没有二级菜单，有的话遍历出二级菜单（就是竖着的那部分）-->
+          
+        </li>
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/archives/">
+            <i class="iconfont icon-archive-fill"></i> 归档</a
+          >
+          <!--以上的部分是一级导航的部分-->
+          <!--这里判断有没有二级菜单，有的话遍历出二级菜单（就是竖着的那部分）-->
+          
+        </li>
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/categories/">
+            <i class="iconfont icon-category-fill"></i> 分类</a
+          >
+          <!--以上的部分是一级导航的部分-->
+          <!--这里判断有没有二级菜单，有的话遍历出二级菜单（就是竖着的那部分）-->
+          
+          <ul class="sub-menu">
+            <!--//遍历出二级菜单（就是竖着的那部分）-->
+            
+            <li>
+              <!--//a标签里当然是输出二级菜单的路径咯-->
+              <a href="/categories/Blogs/">
+                <!--//i标签里输出二级菜单的icon的class咯-->
+                <i class="iconfont icon-category-fill"></i>
+                <!--//这里输出二级菜单名咯-->
+                Blogs
+              </a>
+            </li>
+            
+            <li>
+              <!--//a标签里当然是输出二级菜单的路径咯-->
+              <a href="/categories/Papers/">
+                <!--//i标签里输出二级菜单的icon的class咯-->
+                <i class="iconfont icon-category-fill"></i>
+                <!--//这里输出二级菜单名咯-->
+                Papers
+              </a>
+            </li>
+            
+            <li>
+              <!--//a标签里当然是输出二级菜单的路径咯-->
+              <a href="/categories/Game%20Devs/">
+                <!--//i标签里输出二级菜单的icon的class咯-->
+                <i class="iconfont icon-category-fill"></i>
+                <!--//这里输出二级菜单名咯-->
+                Game Devs
+              </a>
+            </li>
+            
+          </ul>
+          
+        </li>
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/tags/">
+            <i class="iconfont icon-tags-fill"></i> 标签</a
+          >
+          <!--以上的部分是一级导航的部分-->
+          <!--这里判断有没有二级菜单，有的话遍历出二级菜单（就是竖着的那部分）-->
+          
+        </li>
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">
+            <i class="iconfont icon-user-fill"></i> 关于</a
+          >
+          <!--以上的部分是一级导航的部分-->
+          <!--这里判断有没有二级菜单，有的话遍历出二级菜单（就是竖着的那部分）-->
+          
+        </li>
+           
+        <li class="nav-item">
+          <a class="nav-link" href="/links/">
+            <i class="iconfont icon-link-fill"></i> 友链</a
+          >
+          <!--以上的部分是一级导航的部分-->
+          <!--这里判断有没有二级菜单，有的话遍历出二级菜单（就是竖着的那部分）-->
+          
+        </li>
+         
+        <li class="nav-item" id="search-btn">
+          <a
+            class="nav-link"
+            target="_self"
+            href="javascript:;"
+            data-toggle="modal"
+            data-target="#modalSearch"
+            aria-label="Search"
+          >
+            <i class="iconfont icon-search"></i>
+          </a>
+        </li>
+          
+        <li class="nav-item" id="color-toggle-btn">
+          <a
+            class="nav-link"
+            target="_self"
+            href="javascript:;"
+            aria-label="Color Toggle"
+          >
+            <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CS180-Proj5-Diffusion"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-11-24 18:12" pubdate>
+          2025年11月24日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          351 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          3 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CS180-Proj5-Diffusion</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="cs180-proj5-diffusion">CS180-Proj5-Diffusion</h1>
+<h2 id="deliverables">Deliverables</h2>
+<p><strong>Seeds:</strong> 42</p>
+<h3 id="part-0-setup">Part 0: Setup</h3>
+<ul>
+<li><p>My prompts:</p>
+<ul>
+<li>a photo of the Great Wall</li>
+<li>a photo of beautiful woman</li>
+<li>a photo of a car</li>
+<li>a photo of a cat</li>
+<li>an oil painting of people around a campfire</li>
+<li>an oil painting of an old lady</li>
+<li>a portrait of Steve Jobs</li>
+<li>a football</li>
+<li>a movie star</li>
+<li>a rainbow flag</li>
+<li>a soft bed</li>
+</ul></li>
+<li><p>Selected prompts:</p>
+<ul>
+<li>a photo of the Great Wall</li>
+<li>an oil painting of people around a campfire</li>
+<li>a portrait of Steve Jobs</li>
+</ul></li>
+<li><p>Results:</p>
+<ul>
+<li><p>num_inference steps = 20 <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124025005.png" srcset="/img/loading.gif" lazyload alt="num_infer=20"></p></li>
+<li><p>num_inference steps = 200 <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124025854.png" srcset="/img/loading.gif" lazyload></p></li>
+</ul></li>
+</ul>
+<h3 id="part-1-sampling-loops">Part 1: Sampling Loops</h3>
+<h4 id="part-1.1-implementing-the-forward-process">Part 1.1:
+Implementing the Forward Process</h4>
+<ul>
+<li>Implement <code>noisy_im = forward(im, t)</code> function:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">im, t</span>):<br>  <span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">  Args:</span><br><span class="hljs-string">    im : torch tensor of size (1, 3, 64, 64) representing the clean image</span><br><span class="hljs-string">    t : integer timestep</span><br><span class="hljs-string"></span><br><span class="hljs-string">  Returns:</span><br><span class="hljs-string">    im_noisy : torch tensor of size (1, 3, 64, 64) representing the noisy image at timestep t</span><br><span class="hljs-string">  &quot;&quot;&quot;</span><br>  <span class="hljs-keyword">with</span> torch.no_grad():<br>    <span class="hljs-comment"># alphas_cumprod is a torch tensor of size (T,) defined in the main script</span><br>    alpha_t = alphas_cumprod[t].to(im.device)<br><br>    epsilon = torch.randn_like(im)<br><br>    <span class="hljs-comment"># x_t = sqrt(alpha_t) * x_0 + sqrt(1 - alpha_t) * epsilon</span><br>    im_noisy = torch.sqrt(alpha_t) * im + torch.sqrt(<span class="hljs-number">1</span> - alpha_t) * epsilon<br>  <span class="hljs-keyword">return</span> im_noisy<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Results:
+<ul>
+<li>Original image: <img src="https://cal-cs180.github.io/fa24/hw/proj5/assets/campanile.jpg" srcset="/img/loading.gif" lazyload></li>
+<li>Noisy image at t=250, 500 and 750: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124030459.png" srcset="/img/loading.gif" lazyload></li>
+</ul></li>
+</ul>
+<h4 id="part-1.2-classical-denoising">Part 1.2: Classical
+Denoising:</h4>
+<ul>
+<li>Results: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124030901.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h4 id="part-1.3-one-step-denoising">Part 1.3: One-Step Denoising</h4>
+<p>Using the prompt 'a high quality photo' and a pretrained model to
+denoise the noisy image at timestep t=250, 500, and 750.</p>
+<ul>
+<li>Results: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124031234.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h4 id="part-1.4-iterative-denoising">Part 1.4: Iterative Denoising</h4>
+<ul>
+<li>Results with <code>i_start = 10</code> and <code>stride = 30</code>:
+<img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124031655.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h4 id="part-1.5-diffusion-model-sampling">Part 1.5: Diffusion Model
+Sampling</h4>
+<p>This part simply generates samples from pure noise and prompt "a high
+quality photo" using the diffusion model sampling loop.</p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124031957.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="part-1.6-classifier-free-guidancecfg">Part 1.6: Classifier-Free
+Guidance(CFG)</h4>
+<ul>
+<li>Implement the <code>iterative_denoising_cfg</code> function:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">iterative_denoise_cfg</span>(<span class="hljs-params">im_noisy, i_start, prompt_embeds, uncond_prompt_embeds, timesteps, scale=<span class="hljs-number">7</span>, display=<span class="hljs-literal">True</span></span>):<br>  image = im_noisy<br>  progress_imgs = &#123;&#125;<br><br>  <span class="hljs-keyword">with</span> torch.no_grad():<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i_start, <span class="hljs-built_in">len</span>(timesteps) - <span class="hljs-number">1</span>):<br>      t = timesteps[i]<br>      prev_t = timesteps[i+<span class="hljs-number">1</span>]<br><br>      <span class="hljs-comment"># Get `alpha_cumprod`, `alpha_cumprod_prev`, `alpha`, `beta`</span><br>      alpha_cumprod_t = alphas_cumprod[t].to(image.device)<br>      alpha_cumprod_prev = alphas_cumprod[prev_t].to(image.device)<br><br>      alpha_t = alpha_cumprod_t / alpha_cumprod_prev<br>      beta_t = <span class="hljs-number">1</span> - alpha_t<br><br>      <span class="hljs-comment"># Get cond noise estimate</span><br>      model_output = stage_1.unet(<br>          image,<br>          t,<br>          encoder_hidden_states=prompt_embeds,<br>          return_dict=<span class="hljs-literal">False</span><br>      )[<span class="hljs-number">0</span>]<br><br>      <span class="hljs-comment"># Get uncond noise estimate</span><br>      uncond_model_output = stage_1.unet(<br>          image,<br>          t,<br>          encoder_hidden_states=uncond_prompt_embeds,<br>          return_dict=<span class="hljs-literal">False</span><br>      )[<span class="hljs-number">0</span>]<br><br>      <span class="hljs-comment"># Split estimate into noise and variance estimate</span><br>      noise_est, predicted_variance = torch.split(model_output, image.shape[<span class="hljs-number">1</span>], dim=<span class="hljs-number">1</span>)<br>      uncond_noise_est, _ = torch.split(uncond_model_output, image.shape[<span class="hljs-number">1</span>], dim=<span class="hljs-number">1</span>)<br><br>      <span class="hljs-comment"># Compute the CFG noise estimate based on equation 4</span><br>      cfg_noise_est = uncond_noise_est + scale * (noise_est - uncond_noise_est)<br><br>      <span class="hljs-comment"># Get `pred_prev_image`, the next less noisy image.</span><br>      pred_x0 = (image - torch.sqrt(<span class="hljs-number">1</span> - alpha_cumprod_t) * cfg_noise_est) / torch.sqrt(alpha_cumprod_t)<br><br>      coeff_x0 = (torch.sqrt(alpha_cumprod_prev) * beta_t) / (<span class="hljs-number">1</span> - alpha_cumprod_t)<br>      coeff_xt = (torch.sqrt(alpha_t) * (<span class="hljs-number">1</span> - alpha_cumprod_prev)) / (<span class="hljs-number">1</span> - alpha_cumprod_t)<br><br>      pred_prev_image_mean = coeff_x0 * pred_x0 + coeff_xt * image<br><br>      <span class="hljs-keyword">if</span> prev_t &gt; <span class="hljs-number">0</span>:<br>          pred_prev_image = add_variance(predicted_variance, t, pred_prev_image_mean)<br>      <span class="hljs-keyword">else</span>:<br>          pred_prev_image = pred_prev_image_mean<br><br>      image = pred_prev_image<br><br>      <span class="hljs-keyword">if</span> display <span class="hljs-keyword">and</span> i % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>:<br>          <span class="hljs-comment"># Just store the first image in the batch for progress display</span><br>          progress_imgs[<span class="hljs-string">f&#x27;Step <span class="hljs-subst">&#123;i&#125;</span>&#x27;</span>] = image[<span class="hljs-number">0</span>].permute(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>).cpu().detach() / <span class="hljs-number">2.0</span> + <span class="hljs-number">0.5</span><br><br>    <span class="hljs-keyword">if</span> display:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Denoising Progress (CFG):&quot;</span>)<br>        media.show_images(progress_imgs)<br><br>    clean = image.cpu().detach().permute(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>).numpy() / <span class="hljs-number">2.0</span> + <span class="hljs-number">0.5</span><br><br>  <span class="hljs-keyword">return</span> clean<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Results: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124032348.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h4 id="part-1.7.1-image-to-image-translation">Part 1.7.1:
+Image-to-Image Translation</h4>
+<ol type="1">
+<li><p>for web image:</p>
+<ul>
+<li>Original image: <img src="https://i.pinimg.com/originals/76/e5/d5/76e5d55d0c8c6ec65135b42a2c5cbd98.jpg" srcset="/img/loading.gif" lazyload></li>
+<li>SDEdit result (for noise levels [1, 3, 5, 7, 10, 20] ): <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124032832.png" srcset="/img/loading.gif" lazyload></li>
+</ul></li>
+<li><p>for handdrawn image 1:</p>
+<ul>
+<li>Original image: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180myImage1.png" srcset="/img/loading.gif" lazyload></li>
+<li>SDEdit result (for noise levels [1, 3, 5, 7, 10, 20] ): <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124033113.png" srcset="/img/loading.gif" lazyload></li>
+</ul></li>
+<li><p>for handdrawn image 2:</p>
+<ul>
+<li>Original image: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180myImage2.png" srcset="/img/loading.gif" lazyload></li>
+<li>SDEdit result (for noise levels [1, 3, 5, 7, 10, 20] ): <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124034526.png" srcset="/img/loading.gif" lazyload></li>
+</ul></li>
+</ol>
+<h4 id="part-1.7.2-1.7.3-inpainting">Part 1.7.2 &amp; 1.7.3:
+Inpainting</h4>
+<ul>
+<li><p>Original image and mask: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124034751.png" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>Replace the region with "a rocket ship" prompt: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124035336.png" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>Original image and mask: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124040337.png" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>Replace the region with "an oil painting of an old man" prompt:
+<img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124040744.png" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>Original image and mask: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124041244.png" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>Replace the region with "a photo of a dog" prompt: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124041345.png" srcset="/img/loading.gif" lazyload></p></li>
+</ul>
+<h4 id="part-1.8-visual-anagrams">Part 1.8: Visual Anagrams</h4>
+<ul>
+<li>Results: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124041631.png" srcset="/img/loading.gif" lazyload>
+<img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124042038.png" srcset="/img/loading.gif" lazyload>
+<img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124042257.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h4 id="part-1.9-hybrid-images">Part 1.9: Hybrid Images</h4>
+<p>The skull litograph is really suitable for low frequency part cause
+it is easy to recognize the skull shape even with low details.</p>
+<ul>
+<li>Results: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124042535.png" srcset="/img/loading.gif" lazyload>
+<img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124043123.png" srcset="/img/loading.gif" lazyload>
+<img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124043252.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/notes/" class="print-no-link">#notes</a>
+      
+        <a href="/tags/CS180/" class="print-no-link">#CS180</a>
+      
+        <a href="/tags/CV/" class="print-no-link">#CV</a>
+      
+        <a href="/tags/Diffusion/" class="print-no-link">#Diffusion</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CS180-Proj5-Diffusion</div>
+      <div>https://lceoliu.github.io/2025/11/24/CS180-Proj5-Diffusion/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chang Leo</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年11月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/11/13/CS180-Proj4-NeRF/" title="CS180-Proj4-NeRF">
+                        <span class="hidden-mobile">CS180-Proj4-NeRF</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"9HyUa6m2LMnz9pU9dVwuqyEV-gzGzoHsz","appKey":"LHEhgO1t44IynNOlOy97ZJT1","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/Lceoliu" target="_blank" rel="nofollow noopener"><span>My Github</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
