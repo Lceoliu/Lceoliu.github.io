@@ -19,13 +19,17 @@
   <meta name="author" content="Chang Leo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="CS180-Proj5-Diffusion Deliverables Seeds: 42 Part 0: Setup  My prompts:  a photo of the Great Wall a photo of beautiful woman a photo of a car a photo of a cat an oil painting of people aro">
+    <meta name="description" content="CS180-Proj5-Diffusion Part A: Using a diffusion model Theory of diffusion Variational Auto Encoder (VAE)  For many modalities, we can think of the data we observe as represented or generated b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CS180-Proj5-Diffusion">
 <meta property="og:url" content="https://lceoliu.github.io/2025/11/24/CS180-Proj5-Diffusion/index.html">
 <meta property="og:site_name" content="Chang&#39;s Blog">
-<meta property="og:description" content="CS180-Proj5-Diffusion Deliverables Seeds: 42 Part 0: Setup  My prompts:  a photo of the Great Wall a photo of beautiful woman a photo of a car a photo of a cat an oil painting of people aro">
+<meta property="og:description" content="CS180-Proj5-Diffusion Part A: Using a diffusion model Theory of diffusion Variational Auto Encoder (VAE)  For many modalities, we can think of the data we observe as represented or generated b">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208185900.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208200307.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208195018.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208200007.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124025005.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124025854.png">
 <meta property="og:image" content="https://cal-cs180.github.io/fa24/hw/proj5/assets/campanile.jpg">
@@ -53,15 +57,37 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124042535.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124043123.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124043252.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208215313.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208215423.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208224032.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208215518.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208224120.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208224257.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208230318.png">
+<meta property="og:image" content="https://cal-cs180.github.io/fa25/hw/proj5/assets/conditional_arch_fm.png">
+<meta property="og:image" content="https://cal-cs180.github.io/fa25/hw/proj5/assets/algo1_t_only_fm.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208234026.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208234118.png">
+<meta property="og:image" content="https://cal-cs180.github.io/fa25/hw/proj5/assets/algo3_c_fm.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208234233.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208234312.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_conditional_epoch1.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_conditional_epoch5.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_conditional_epoch10.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251209022532.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251209022839.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_rm_conditional_epoch1.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_rm_conditional_epoch5.gif">
+<meta property="og:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_rm_conditional_epoch15.gif">
 <meta property="article:published_time" content="2025-11-25T02:12:45.000Z">
-<meta property="article:modified_time" content="2025-11-25T02:13:13.533Z">
+<meta property="article:modified_time" content="2025-12-10T03:44:47.759Z">
 <meta property="article:author" content="Chang Leo">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="CS180">
 <meta property="article:tag" content="CV">
 <meta property="article:tag" content="Diffusion">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124025005.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208185900.png">
   
   
   
@@ -319,7 +345,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          351 字
+          752 字
         
       </span>
     
@@ -330,7 +356,7 @@
         
         
         
-          3 分钟
+          7 分钟
         
       </span>
     
@@ -382,7 +408,81 @@
               <div class="markdown-body">
                 
                 <h1 id="cs180-proj5-diffusion">CS180-Proj5-Diffusion</h1>
-<h2 id="deliverables">Deliverables</h2>
+<h2 id="part-a-using-a-diffusion-model">Part A: Using a diffusion
+model</h2>
+<h3 id="theory-of-diffusion">Theory of diffusion</h3>
+<h4 id="variational-auto-encoder-vae">Variational Auto Encoder
+(VAE)</h4>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208185900.png" srcset="/img/loading.gif" lazyload></p>
+<p>For many modalities, we can think of the data we observe as
+represented or generated by an associated unseen latent variable, which
+we can denote by random variable <span class="math inline">\(z\)</span>.
+Mathematically, we can denote <span class="math inline">\(p(x)\)</span>
+as the probability of the model generates the real image <span class="math inline">\(x\)</span>. Since the decoder generates image from
+<span class="math inline">\(z\)</span>, so <span class="math inline">\(p(x)\)</span> is the marginal probability of joint
+distribution <span class="math inline">\(p(x, z)\)</span>, i.e. <span class="math inline">\(p(x)=\int p(\tilde{x}=x|z)p(z)dz\)</span>.
+Obviously it is too hard to integrate all possible <span class="math inline">\(z\)</span>, so another way is to use the equation
+<span class="math inline">\(p(x) = \frac{p(x,z)}{p(z|x)}\)</span> to
+calculate it. Still we cannot get the expression of <span class="math inline">\(p(z|x)\)</span>, so we use a deep neural network
+to imitate it. That is the encoder, we denote it as <span class="math inline">\(q_{\phi}(z|x)\)</span>, where <span class="math inline">\(\phi\)</span> is the parameters of encoder.</p>
+<p>To measure how close these two distributions are, we use kl
+divergence:</p>
+<p><span class="math display">\[
+D_{KL}(q_{\phi}(z|x)||p(z|x))
+\]</span></p>
+<p>Unfortunately, we cannot access the real distribution <span class="math inline">\(p(z|x)\)</span>, but we have</p>
+<p><span class="math display">\[
+\log p(\boldsymbol{x}) =
+\mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z}\mid\boldsymbol{x})}\left[\log\frac{p(\boldsymbol{x},
+\boldsymbol{z})}{q_{\boldsymbol{\phi}}(\boldsymbol{z}\mid\boldsymbol{x})}\right]
++
+\mathcal{D}_{\text{KL}}(q_{\boldsymbol{\phi}}(\boldsymbol{z}\mid\boldsymbol{x})
+\mid\mid p(\boldsymbol{z}\mid\boldsymbol{x}))
+\]</span></p>
+<p>where <span class="math inline">\(\mathbb{E}_{q_{\boldsymbol{\phi}}(\boldsymbol{z}\mid\boldsymbol{x})}\left[\log\frac{p(\boldsymbol{x},
+\boldsymbol{z})}{q_{\boldsymbol{\phi}}(\boldsymbol{z}\mid\boldsymbol{x})}\right]\)</span>
+is known as <span class="math inline">\(ELBO\)</span> (Evidence Lower
+Bound). Notice that <span class="math inline">\(p(x)\)</span> is
+actually related to the decoder's params <span class="math inline">\(\theta\)</span>, so if we fix the <span class="math inline">\(\theta\)</span>, we have:</p>
+<p><span class="math display">\[
+\log p(\boldsymbol{x}) = Constant = \boldsymbol{ELBO}(\phi)+KL
+\]</span></p>
+<p>So to minimize KL, we maximize ELBO.</p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208200307.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="variational-diffusion-models">Variational Diffusion Models</h4>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208195018.png" srcset="/img/loading.gif" lazyload></p>
+<p><span class="math display">\[
+    p(\boldsymbol{x}, \boldsymbol{z}_{1:T}) =
+p(\boldsymbol{z}_T)p_{\boldsymbol{\theta}}(\boldsymbol{x}\mid\boldsymbol{z}_1)\prod_{t=2}^{T}p_{\boldsymbol{\theta}}(\boldsymbol{z}_{t-1}\mid\boldsymbol{z}_{t})
+\]</span></p>
+<p>and its posterior is:</p>
+<p><span class="math display">\[
+    q_{\boldsymbol{\phi}}(\boldsymbol{z}_{1:T}\mid\boldsymbol{x}) =
+q_{\boldsymbol{\phi}}(\boldsymbol{z}_1\mid\boldsymbol{x})\prod_{t=2}^{T}q_{\boldsymbol{\phi}}(\boldsymbol{z}_{t}\mid\boldsymbol{z}_{t-1})
+\]</span></p>
+<p>There are 3 key restrictions:</p>
+<ol type="1">
+<li>The latent dimension is exactly equal to the data dimension</li>
+<li>The structure of the latent encoder at each timestep is not learned;
+it is pre-defined as a linear Gaussian model. In other words, it is a
+Gaussian distribution centered around the output of the previous
+timestep</li>
+<li>The Gaussian parameters of the latent encoders vary over time in
+such a way that the distribution of the latent at final timestep <span class="math inline">\(T\)</span> is a standard Gaussian</li>
+</ol>
+<p>For example, we have a real image which is <span class="math inline">\(x\)</span>, we assume it will finally become a
+pure gaussian distribution (noise) at <span class="math inline">\(z_T\)</span> with same size by adding gaussian
+noise:</p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208200007.png" srcset="/img/loading.gif" lazyload></p>
+<p>This means every <span class="math inline">\(q_{\phi}(x_t|x_{t-1})\)</span> is a Gaussian, we
+define it as:</p>
+<p><span class="math display">\[
+q_{\phi}(x_t|x_{t-1}) = \mathcal{N}(x_t | \sqrt{\alpha_t} x_{t-1},
+(1-\alpha_t)\bold{I})
+\]</span></p>
+<p>where <span class="math inline">\(\alpha_t\)</span> is a
+hyperparameter.</p>
+<h3 id="deliverables-part-a">Deliverables (Part A)</h3>
 <p><strong>Seeds:</strong> 42</p>
 <h3 id="part-0-setup">Part 0: Setup</h3>
 <ul>
@@ -499,6 +599,67 @@ it is easy to recognize the skull shape even with low details.</p>
 <li>Results: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124042535.png" srcset="/img/loading.gif" lazyload>
 <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124043123.png" srcset="/img/loading.gif" lazyload>
 <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251124043252.png" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h3 id="deliverable-part-b">Deliverable (Part B)</h3>
+<h4 id="part-1.1-1.2-using-the-unet-to-train-a-denoiser">Part 1.1 &amp;
+1.2 Using the UNet to Train a Denoiser</h4>
+<p>A visualization of the noising process using <span class="math inline">\(\sigma=[0.0, 0.2, 0.4, 0.5, 0.6, 0.8,
+1.0]\)</span></p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208215313.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="part-1.2.1-training-unconditional-sigma0.5">Part 1.2.1 Training
+(Unconditional, <span class="math inline">\(\sigma=0.5\)</span>)</h4>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208215423.png" srcset="/img/loading.gif" lazyload></p>
+<p>After 1 epoch:</p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208224032.png" srcset="/img/loading.gif" lazyload></p>
+<p>After 5 epoch:</p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208215518.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="part-1.2.2-out-of-distribution-testing">Part 1.2.2
+Out-of-Distribution Testing</h4>
+<p>test on <span class="math inline">\(\sigma=0.0, 0.2, 0.4, 0.5, 0.6,
+0.8, 1.0\)</span>:</p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208224120.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="part-1.2.3-denoising-pure-noise">Part 1.2.3 Denoising Pure
+Noise</h4>
+<p>This time we start from pure noise and use the trained denoiser to
+iteratively denoise it.</p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208224257.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208230318.png" srcset="/img/loading.gif" lazyload></p>
+<p>The final denoised image looks like the average of all digits, since
+the model is trained to denoise from various noisy images of different
+digits, so when starting from pure noise, it cannot figure out which
+digit to generate, thus generates an average digit.</p>
+<h4 id="part-2.1-2.2-adding-time-conditioning-to-unet-training-time-conditioned">Part
+2.1 &amp; 2.2: Adding Time Conditioning to UNet &amp; Training
+(Time-Conditioned)</h4>
+<p><img src="https://cal-cs180.github.io/fa25/hw/proj5/assets/conditional_arch_fm.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://cal-cs180.github.io/fa25/hw/proj5/assets/algo1_t_only_fm.png" srcset="/img/loading.gif" lazyload></p>
+<p>loss curve during training:</p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208234026.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="part-2.3-sampling-from-the-unet">Part 2.3: Sampling from the
+UNet</h4>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208234118.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="part-2.4-2.5-adding-class-conditioning-to-unet-training-class-conditioned">Part
+2.4 &amp; 2.5: Adding Class-Conditioning to UNet &amp; Training
+(Class-Conditioned)</h4>
+<p><img src="https://cal-cs180.github.io/fa25/hw/proj5/assets/algo3_c_fm.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208234233.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="part-2.6-class-conditioned-sampling-from-the-unet">Part 2.6:
+Class-Conditioned Sampling from the UNet</h4>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251208234312.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>epoch 1 animation: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_conditional_epoch1.gif" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>epoch 5 animation: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_conditional_epoch5.gif" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>epoch 10 animation: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_conditional_epoch10.gif" srcset="/img/loading.gif" lazyload></p></li>
+</ul>
+<p>If we remove the scheduler and just use a constant learning rate, the
+loss curve looks like this:</p>
+<p><img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251209022532.png" srcset="/img/loading.gif" lazyload></p>
+<p>To get a similar result, I use a smaller learning rate of 3e-3 and
+train for 15 epochs: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS18020251209022839.png" srcset="/img/loading.gif" lazyload></p>
+<ul>
+<li><p>epoch 1 animation: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_rm_conditional_epoch1.gif" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>epoch 5 animation: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_rm_conditional_epoch5.gif" srcset="/img/loading.gif" lazyload></p></li>
+<li><p>epoch 10 animation: <img src="https://raw.githubusercontent.com/Lceoliu/blog-img/main/CS180class_rm_conditional_epoch15.gif" srcset="/img/loading.gif" lazyload></p></li>
 </ul>
 
                 
