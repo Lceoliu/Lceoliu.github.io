@@ -1,0 +1,44 @@
+.sub-menu {
+  display: none;
+  position: absolute;
+  width: auto;
+  height: auto;
+  padding: 10px 20px 10px 10px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: rgba(47, 65, 84, 0.7);
+  box-shadow: -6px 6px 8px rgba(0, 0, 0, 0.7);
+  -webkit-animation: fadeInUp 0.3s 0.1s ease both;
+}
+
+.sub-menu li {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.sub-menu li a {
+  color: rgb(250, 245, 245);
+}
+
+.sub-menu li ul::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent transparent #fff transparent;
+}
+
+.nav-item:hover .sub-menu {
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+li.nav-item {
+  padding: 0 15px;
+}
