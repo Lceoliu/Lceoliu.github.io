@@ -19,27 +19,25 @@
   <meta name="author" content="Chang Leo">
   <meta name="keywords" content="">
   
-    <meta name="description" content="写在前面 苦逼组会报告记录，等哪天闲了把 Notion 的链接和图片全部导出成 Markdown 搬过来 2025.03.01 上周工作汇报  熟悉手语项目开发流程 CTC 算法，Non-Peaky CTC 算法 VAP（Visual Alignment Pretrain）论文研究  Visual Alignment Pre-training for Sign Languag">
+    <meta name="description" content="写在前面 这篇文档从 Notion 中的组会记录整理而来。原始记录是按日期堆叠的实验汇报，图片、loss 曲线、可视化视频和临时想法很多；这里不逐张搬运图片，而是把研究逻辑、关键实验、阶段性结论和后续方向整理成一条可以回看的主线。 目前这条线索可以概括为：  从手语识别的 CTC&#x2F;VAP 对齐问题入手； 发现仅靠改 loss 难以解决核心问题，瓶颈更可能在 feature 表示、关">
 <meta property="og:type" content="article">
 <meta property="og:title" content="组会报告汇总">
 <meta property="og:url" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting/index.html">
 <meta property="og:site_name" content="Chang&#39;s Blog">
-<meta property="og:description" content="写在前面 苦逼组会报告记录，等哪天闲了把 Notion 的链接和图片全部导出成 Markdown 搬过来 2025.03.01 上周工作汇报  熟悉手语项目开发流程 CTC 算法，Non-Peaky CTC 算法 VAP（Visual Alignment Pretrain）论文研究  Visual Alignment Pre-training for Sign Languag">
+<meta property="og:description" content="写在前面 这篇文档从 Notion 中的组会记录整理而来。原始记录是按日期堆叠的实验汇报，图片、loss 曲线、可视化视频和临时想法很多；这里不逐张搬运图片，而是把研究逻辑、关键实验、阶段性结论和后续方向整理成一条可以回看的主线。 目前这条线索可以概括为：  从手语识别的 CTC&#x2F;VAP 对齐问题入手； 发现仅靠改 loss 难以解决核心问题，瓶颈更可能在 feature 表示、关">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:1c0020c6-6696-4f3d-a3e2-1c83a6d0e5ec:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:ac93bbe9-8253-4704-a808-f07f0e3dd62b:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:f0708809-1d9d-43f5-a626-6ae1fccca918:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:92c452e2-bf0a-4377-88e8-db4007cebe7a:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:ee7a4824-02f2-461b-8c6b-aaf1db863e87:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:2e063b2e-18c5-4dca-b6e3-3538ecb21ce1:image.png">
-<meta property="og:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:ab538ce2-ce45-4e6c-8f40-b66422076a26:image.png">
+<meta property="og:image" content="https://lceoliu.github.io/images/group_meeting/notion/algorithm-review/01.png">
+<meta property="og:image" content="https://lceoliu.github.io/images/group_meeting/notion/6.30/01.png">
+<meta property="og:image" content="https://lceoliu.github.io/images/group_meeting/notion/7.25/01.png">
+<meta property="og:image" content="https://lceoliu.github.io/images/group_meeting/notion/8.8/01.png">
+<meta property="og:image" content="https://lceoliu.github.io/images/group_meeting/notion/9.22/01.png">
 <meta property="article:published_time" content="2025-05-26T17:23:32.000Z">
-<meta property="article:modified_time" content="2026-03-17T15:35:15.373Z">
+<meta property="article:modified_time" content="2026-06-12T04:35:06.660Z">
 <meta property="article:author" content="Chang Leo">
 <meta property="article:tag" content="notes">
 <meta property="article:tag" content="组会">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lceoliu.github.io/2025/05/27/group_meeting/group_meeting//attachment:1c0020c6-6696-4f3d-a3e2-1c83a6d0e5ec:image.png">
+<meta name="twitter:image" content="https://lceoliu.github.io/images/group_meeting/notion/algorithm-review/01.png">
   
   
   
@@ -301,7 +299,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          327 字
+          4.6k 字
         
       </span>
     
@@ -312,7 +310,7 @@
         
         
         
-          3 分钟
+          39 分钟
         
       </span>
     
@@ -363,97 +361,509 @@
             
               <div class="markdown-body">
                 
-                <h3 id="写在前面">写在前面</h3>
-<p>苦逼组会报告记录，等哪天闲了把 Notion 的链接和图片全部导出成 Markdown
-搬过来</p>
-<h2 id="section">2025.03.01</h2>
-<h3 id="上周工作汇报">上周工作汇报</h3>
+                <h2 id="写在前面">写在前面</h2>
+<p>这篇文档从 Notion
+中的组会记录整理而来。原始记录是按日期堆叠的实验汇报，图片、loss
+曲线、可视化视频和临时想法很多；这里不逐张搬运图片，而是把研究逻辑、关键实验、阶段性结论和后续方向整理成一条可以回看的主线。</p>
+<p>目前这条线索可以概括为：</p>
 <ol type="1">
-<li>熟悉手语项目开发流程</li>
-<li>CTC 算法，Non-Peaky CTC 算法</li>
-<li>VAP（Visual Alignment Pretrain）论文研究</li>
+<li>从手语识别的 CTC/VAP 对齐问题入手；</li>
+<li>发现仅靠改 loss 难以解决核心问题，瓶颈更可能在 feature
+表示、关键点预处理和 decode/force alignment；</li>
+<li>用 pure CTC、人工构造 feature、中心化/归一化可视化、silhouette score
+等方法逐步定位问题；</li>
+<li>引入 body part embedding、RoPE、不同部位尺度、时序卷积、ST-GCN/Two
+Stream 等结构和基线；</li>
+<li>后续研究从 gloss 级识别扩展到 RVQ/Sign
+Token，再进一步面向长视频和文档级评价。</li>
 </ol>
-<p><a target="_blank" rel="noopener" href="https://www.notion.so/Visual-Alignment-Pre-training-for-Sign-Language-Translation-1a55661a96728019a0f7cb5db467699f?pvs=21">Visual
-Alignment Pre-training for Sign Language Translation</a></p>
-<h3 id="下周工作内容">下周工作内容</h3>
+<h2 id="总体研究问题">总体研究问题</h2>
+<p>项目的输入主要是手语视频中提取出的关键点序列，目标是在弱对齐或无帧级标注的情况下，完成从连续动作到
+gloss 序列、再到文本或语言模型输入 token 的建模。</p>
+<p>这个问题有几个天然困难：</p>
+<ul>
+<li>手语动作和 gloss
+之间没有严格的一帧一词对应关系，需要从序列级标注中学习时间对齐。</li>
+<li>CTC 可以处理无帧级标注的序列识别，但它容易产生 peaky
+prediction，也就是概率峰集中在少数帧上。</li>
+<li>关键点数据的归一化、中心化、尺度选择会直接改变动作信息的可分性。</li>
+<li>如果输入 feature 本身不可分，后面的 CTC、beam search、force
+alignment 很难补救。</li>
+<li>当任务从短句识别扩展到长视频或文档级翻译时，传统 WER/BLEU
+只能覆盖局部错误，无法充分评价跨句顺序、段落结构和篇章一致性。</li>
+</ul>
+<p>因此，研究逻辑不是简单地“堆模型”，而是围绕三个问题反复排查：</p>
 <ol type="1">
-<li>复现和测试 VAP 的方法</li>
-<li>熟悉大模型的训练步骤</li>
+<li><strong>对齐是否可靠</strong>：CTC、beam search、force alignment
+是否能给出可信的 gloss 时间边界？</li>
+<li><strong>feature 是否可分</strong>：同一个 gloss
+的帧级表示是否真的聚在一起，不同 gloss 是否被拉开？</li>
+<li><strong>token 是否可用</strong>：如果要把手语动作喂给
+LM，VAE/RVQ/Sign Token 的序列化方式是否保留了动作结构？</li>
 </ol>
-<h2 id="section-1">2025.03.08</h2>
-<h3 id="这周的工作">这周的工作</h3>
+<h2 id="阶段一熟悉-pipeline尝试-vap-与-ctc">阶段一：熟悉 pipeline，尝试
+VAP 与 CTC</h2>
+<h3 id="section">2025.03.01 - 2025.03.07</h3>
+<p>最开始的工作是熟悉手语项目开发流程，重点阅读 CTC、Non-Peaky CTC 和
+VAP（Visual Alignment
+Pretrain）。当时的目标是先理解现有模型如何从关键点序列得到 gloss
+概率，再看能不能通过额外的视觉-文本对齐预训练改善 CTC 的尖峰问题。</p>
+<p>CTC 的核心优势是允许输入帧数 <span class="math inline">\(T\)</span>
+和输出 gloss 长度 <span class="math inline">\(N\)</span>
+不一致。模型每一帧输出一个 gloss 分布，CTC 通过 blank 和 collapse
+规则把帧级序列压缩成目标 gloss
+序列，并对所有可能路径求和。它适合没有帧级边界的数据，但副作用是模型可能只在少数帧上给出极高置信度，其余帧都给
+blank，导致可解释的时间边界很差。</p>
+<p>VAP 的直觉是让视觉片段和文本/gloss embedding
+在预训练阶段先对齐，再进入下游识别。这个方向理论上能缓解 CTC
+的弱对齐问题，但实际落地会受到词表、分词和 embedding target 的约束。</p>
+<h3 id="section-1">2025.03.14</h3>
+<p>这一周尝试了两个方向：</p>
 <ul>
-<li>ctc 工作原理和尖峰的解决方案之一</li>
+<li>用 label priors 修正 CTC，即对输出概率额外除以先验概率，试图削弱高频
+gloss 的影响；</li>
+<li>实现 VAP loss，但发现现有 pipeline 需要较大修改，例如整句词
+embedding、QFormer 去留、gloss 词表和外部语言模型分词不一致等。</li>
 </ul>
-<p><a target="_blank" rel="noopener" href="https://www.notion.so/ctc-1af5661a9672800ba39cd75cce756b39?pvs=21">ctc</a></p>
+<p>阶段性结论是：简单 label priors 对 loss 作用不明显；VAP
+的主要工程障碍在于 embedding 空间和 gloss 标注体系不完全对齐。比如 mBART
+的 tokenizer 会把一个 gloss 切成多个 subword，而我们实际 CTC 训练用的是
+gloss 词表，两边长度和语义单位都不一致。后来考虑过用 Sentence-BERT 先对
+gloss 词表编码，但这仍然不能直接解决帧级视觉对齐问题。</p>
+<h3 id="section-2">2025.03.21</h3>
+<p>VAP 训练跑通后，实际切片效果不理想。这说明“加入一个对齐
+loss”并不会自动带来可用的时间边界。此时研究重点开始从“是否能复现
+VAP”转向“CTC 的输出到底如何对齐，decode 和 feature 到底哪里出问题”。</p>
+<h2 id="阶段二算法-review明确瓶颈位置">阶段二：算法
+review，明确瓶颈位置</h2>
+<h3 id="模型结构">模型结构</h3>
+<p>当时的模型可以抽象为：</p>
+<figure>
+<img src="/images/group_meeting/notion/algorithm-review/01.png" srcset="/img/loading.gif" lazyload alt="原始 QFormer + CTC pipeline">
+<figcaption aria-hidden="true">原始 QFormer + CTC pipeline</figcaption>
+</figure>
+<pre><code class=" mermaid">graph TD
+  A[&quot;手语关键点 B x T x keypoints x 2&quot;] --&gt; B[&quot;MLP feature extractor&quot;]
+  B --&gt; C[&quot;帧级特征 B x T x D&quot;]
+  P[&quot;位置嵌入&quot;] --&gt; D[&quot;特征 + 位置&quot;]
+  C --&gt; D
+  D --&gt; Q[&quot;QFormer / Transformer Encoder&quot;]
+  Q --&gt; H[&quot;分类器&quot;]
+  H --&gt; O[&quot;gloss 概率 B x T x num_gloss&quot;]
+  Q --&gt; L[&quot;辅助 embedding / SignCL loss&quot;]
+</code></pre>
+<p>关键疑问是：新的数据集中没有稳定的 embedding target，那么 QFormer 的
+embedding output 是否还有足够监督？如果 embedding loss 在某些 checkpoint
+之后实际上被忽略，那么 QFormer
+的这部分设计可能没有发挥预期作用。于是后续实验开始尝试更纯粹的 CTC
+结构。</p>
+<h3 id="ctc-decode-与-force-alignment">CTC decode 与 force
+alignment</h3>
+<p>算法 review 里还整理了 decode 和 force alignment：</p>
 <ul>
-<li>代码实际测试（正在）</li>
+<li><strong>beam search decode</strong>：从每一帧的 gloss
+概率矩阵中搜索最可能的 gloss 序列。当前参数大致是
+<code>nbest = 1</code>、<code>beam size = 15</code>，后续也考虑通过增大
+beam size 找回漏掉的 peak。</li>
+<li><strong>trellis force alignment</strong>：给定概率矩阵和 decode
+出来的 gloss 序列，用动态规划回溯每个 gloss 的起止帧。</li>
 </ul>
-<h3 id="下周准备">下周准备</h3>
+<p>force alignment 的状态可以理解为 <span class="math inline">\(k[t,j]\)</span>：在时间 <span class="math inline">\(t\)</span> 到达第 <span class="math inline">\(j\)</span> 个 token
+的最大概率。递推时比较“前进到下一个 gloss”和“停留在
+blank”的两种路径：</p>
+<p><span class="math display">\[
+k[t+1,j+1] = \max\{k[t,j]p(t+1,G_{j+1}), k[t,j+1]p(t+1,G_{blank})\}
+\]</span></p>
+<p>样本分析中出现过类似问题：ground truth
+是“好、上次、补、牙、后、感觉、有点、酸、疼”，预测变成“好、补、牙、后、觉得、有点、疼”。这说明模型并非完全没学到动作，但容易漏词、混淆近义/近形词，且
+force alignment 有时更像把 peaky frame 视为 gloss
+的开始，而实际可能更接近动作结束。</p>
+<p>阶段性判断：</p>
 <ul>
-<li>看下改过 loss 的训练效果</li>
+<li>CTC 确实能驱动模型学到部分重要特征；</li>
+<li>但 decode 和 force alignment
+不是纯后处理问题，它们强依赖概率矩阵质量；</li>
+<li>如果帧级 feature 本身不可分，beam search 和 force alignment
+只能在坏分布上做近似。</li>
 </ul>
-<h2 id="section-2">2025.03.14</h2>
-<h3 id="上一周的工作">上一周的工作</h3>
+<h2 id="阶段三pure-ctc-与-feature-瓶颈">阶段三：Pure CTC 与 feature
+瓶颈</h2>
+<h3 id="section-3">2025.06.30</h3>
+<p>为了排除 QFormer 等复杂模块的影响，开始做 Pure CTC
+Test。结构简化为：</p>
+<figure>
+<img src="/images/group_meeting/notion/6.30/01.png" srcset="/img/loading.gif" lazyload alt="Pure CTC 结构草图">
+<figcaption aria-hidden="true">Pure CTC 结构草图</figcaption>
+</figure>
+<pre><code class=" mermaid">graph TD
+  A[&quot;关键点序列&quot;] --&gt; B[&quot;MLP feature extractor&quot;]
+  B --&gt; C[&quot;位置编码 / 相对位置&quot;]
+  C --&gt; D[&quot;Transformer Encoder&quot;]
+  D --&gt; E[&quot;MLP classifier&quot;]
+  E --&gt; F[&quot;CTC gloss probability&quot;]
+</code></pre>
+<p>实验记录里有几个关键结果：</p>
 <ul>
-<li>验证了简单的 label priors（多除一个先验概率）对 CTC
-训练的作用很小（至少对 loss 来说，也可能是调的参数不对）</li>
+<li>Transformer 从 3 层增加到 6 层后，val loss 反而从约 17 变到
+18，说明盲目加深模型没有解决瓶颈。</li>
+<li>不过滤 gloss 时 loss 约 37，filtered 后约
+17，说明词表规模、样本分布和长尾 gloss 对训练稳定性影响很大。</li>
+<li>后续方向包括相对位置编码、GCN、可视化 transformer output、缩小 gloss
+dict 到高频词、用 frame embedding 和 gloss embedding 对齐等。</li>
+</ul>
+<p>这里开始明确一个方向：<strong>先证明 feature 空间是否能把 gloss
+分开，再谈更复杂的识别头。</strong></p>
+<h3 id="section-4">2025.07.10</h3>
+<p>这一阶段加入了：</p>
+<ul>
+<li>body part embedding；</li>
+<li>RoPE 作为相对位置编码；</li>
+<li>对 blank 类设置较低权重的 cross entropy；</li>
+<li>训练集过拟合实验；</li>
+<li>feature 相似度分析。</li>
+</ul>
+<p>结果发现，所有 gloss 的特征相似度分布很接近，不是“同一 gloss
+内部更接近、不同 gloss 更远”，而是整体都混在一起。这直接指向 feature
+extractor 或关键点预处理：模型可能没有得到足够可分的输入表示。</p>
+<h3 id="section-5">2025.07.13</h3>
+<p>进一步怀疑 mean/std 归一化让 2D 点过于接近，于是尝试：</p>
+<ul>
+<li>预处理时不对 2D 点除以 std；</li>
+<li>对不同部位的特征做不同尺度放大；</li>
+<li>加入简单的时间维卷积；</li>
+<li>后续考虑 ST-GCN stream、预训练 backbone、对 transformer output
+施加相似度/对比学习 loss、相邻帧变化 loss、多特征融合等。</li>
+</ul>
+<p>这一阶段最重要的认识是：对于关键点方法，输入的尺度和中心化不是无害的
+preprocessing detail，而是会直接决定动作差异是否还在。</p>
+<h2 id="阶段四归一化中心化与可分性量化">阶段四：归一化、中心化与可分性量化</h2>
+<h3 id="section-6">2025.07.18 - 2025.07.22</h3>
+<p>围绕关键点归一化做了大量可视化。主要比较了：</p>
+<ul>
+<li>每帧固定中心点；</li>
+<li>时间平均中心点；</li>
+<li>不同 cover ratio：100%、80%、50%；</li>
+<li>同一 cover ratio 下不同中心化方法；</li>
+<li>同一中心化方法下不同 cover ratio。</li>
+</ul>
+<p>当时还用 Mean Silhouette Score 对 feature
+可分性做量化。记录中的结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>中心化方法</th>
+<th style="text-align: right;">cover ratio</th>
+<th style="text-align: right;">Mean Silhouette Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>固定中心点</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">0.3775</td>
+</tr>
+<tr>
+<td>固定中心点</td>
+<td style="text-align: right;">80%</td>
+<td style="text-align: right;">0.3702</td>
+</tr>
+<tr>
+<td>固定中心点</td>
+<td style="text-align: right;">50%</td>
+<td style="text-align: right;">0.3767</td>
+</tr>
+<tr>
+<td>时间平均中心点</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">0.3727</td>
+</tr>
+<tr>
+<td>时间平均中心点</td>
+<td style="text-align: right;">80%</td>
+<td style="text-align: right;">0.3765</td>
+</tr>
+<tr>
+<td>时间平均中心点</td>
+<td style="text-align: right;">50%</td>
+<td style="text-align: right;">0.3708</td>
+</tr>
+</tbody>
+</table>
+<p>这些数值差异不大，说明简单换中心化或 cover ratio 并没有显著提高 gloss
+聚类质量。换句话说，问题可能不只是坐标整体平移/缩放，而是需要更强的结构先验，例如关节拓扑、局部部位建模或
+RGB/pose 融合。</p>
+<h3 id="section-7">2025.07.25</h3>
+<p>这一页是整个排查链路的关键。为了验证“CTC 是否真的受 feature
+质量支配”，人为构造了一个“良好 feature”：</p>
+<ul>
+<li>用 one-hot 编码每个 gloss 的 feature；</li>
+<li>其他维度用随机数填充；</li>
+<li>只用一层线性层做分类。</li>
+</ul>
+<p>结果显示，当初始 feature 足够可分时，简单分类器也能让 CTC decode
+得到合理序列。这说明 CTC 本身不是主要瓶颈。真正的问题是当前 feature
+extractor 没有把关键点序列映射到一个足够可分的表示空间。</p>
+<figure>
+<img src="/images/group_meeting/notion/7.25/01.png" srcset="/img/loading.gif" lazyload alt="人为构造良好 feature 后的相似度矩阵">
+<figcaption aria-hidden="true">人为构造良好 feature
+后的相似度矩阵</figcaption>
+</figure>
+<p>这个结论把后续方向从“继续调 CTC loss”推向“先改善 feature 表示”。</p>
+<h2 id="阶段五外部基线数据增强与工程问题">阶段五：外部基线、数据增强与工程问题</h2>
+<h3 id="section-8">2025.07.30</h3>
+<p>在 Phoenix2014 上和 Two Stream 纯 Keypoint 方法做了对比：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th style="text-align: right;">WER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ours, beam size = 30</td>
+<td style="text-align: right;">49.90774%</td>
+</tr>
+<tr>
+<td>Two Stream 纯 Keypoint</td>
+<td style="text-align: right;">30.97%</td>
+</tr>
+</tbody>
+</table>
+<p>这说明当前 pure/keypoint pipeline 和成熟 Two Stream baseline
+还有明显差距。差距可能来自多个方面：</p>
+<ul>
+<li>backbone 对局部动作和时序模式的建模不足；</li>
+<li>关键点预处理损失了可辨别动作细节；</li>
+<li>decode 和 force alignment 对 peaky CTC 输出仍然脆弱；</li>
+<li>仅 keypoint 信息可能不足，需要 RGB 或更强 pose backbone。</li>
+</ul>
+<h3 id="section-9">2025.08.04</h3>
+<p>阅读了一篇关于 pose-only 数据增强 ablation
+的论文，并对自己的模型做了类似
+ablation。记录中比较了“添加全身关键点”和“无全身关键点”，得到的 WER
+约为：</p>
+<table>
+<thead>
+<tr>
+<th>设置</th>
+<th style="text-align: right;">WER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>添加全身关键点</td>
+<td style="text-align: right;">56.1501%</td>
+</tr>
+<tr>
+<td>无全身关键点</td>
+<td style="text-align: right;">53.3210%</td>
+</tr>
+</tbody>
+</table>
+<p>这个结果说明，并不是加入更多关键点就一定更好。全身关键点可能带来噪声、尺度不一致或冗余维度。如果模型没有显式利用人体拓扑结构，更多点反而可能干扰手部动作的精细建模。</p>
+<h3 id="section-10">2025.08.08</h3>
+<p>这一周主要是工程和数据问题：</p>
+<ul>
+<li>video loader 改进，3000 帧视频读取从约 30s 降到约 6s；</li>
+<li>发现中文数据的 keypoint 和 RGB 索引似乎对不上，需要继续处理；</li>
+<li>Two Stream 训练很慢，大约 10 小时以上一个 epoch。</li>
 </ul>
 <figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:1c0020c6-6696-4f3d-a3e2-1c83a6d0e5ec:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
+<img src="/images/group_meeting/notion/8.8/01.png" srcset="/img/loading.gif" lazyload alt="video loader 优化前后耗时对比">
+<figcaption aria-hidden="true">video loader
+优化前后耗时对比</figcaption>
 </figure>
+<p>这些问题看似工程细节，但对研究很关键：长视频、RGB-pose
+对齐和训练吞吐量会直接限制实验迭代速度。</p>
+<h2 id="阶段六从识别转向动作-token-与-lm-输入">阶段六：从识别转向动作
+token 与 LM 输入</h2>
+<h3 id="section-11">2025.09.09 - 2025.09.11</h3>
+<p>后续开始出现 RVQ 训练和动作 token 化方向。记录里提到：</p>
 <ul>
-<li>实现了 VAP loss 的代码，但现有的 model pipeline
-需要一定程度的修改（整句话词 embedding，删去 QFormer，etc）</li>
+<li>block 无重叠；</li>
+<li>chunk size = 10；</li>
+<li>继续检查 dataset 归一化；</li>
+<li>可视化 decode 效果。</li>
 </ul>
+<p>这说明研究目标开始从“CTC 识别 gloss”扩展到“把连续手语动作编码成离散
+token”。这一步很自然：如果想把手语动作接入语言模型，连续关键点必须被压缩成可序列化、可预测、可重建的
+token 表示。</p>
+<p>RVQ 的价值在于把连续动作表示离散化。一个残差量化器先用第一层 codebook
+近似输入，再用后续 codebook 逐层拟合残差。这样可以用多个离散 token
+表示一个动作片段，既保留压缩能力，也适合接入自回归模型。</p>
+<h3 id="section-12">2025.09.22</h3>
+<p>这一页记录了新的 pipeline 设计。序列大致形式是：</p>
 <figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:ac93bbe9-8253-4704-a808-f07f0e3dd62b:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
+<img src="/images/group_meeting/notion/9.22/01.png" srcset="/img/loading.gif" lazyload alt="面向 LM 的 chunk visual encoder pipeline">
+<figcaption aria-hidden="true">面向 LM 的 chunk visual encoder
+pipeline</figcaption>
 </figure>
-<p>问题：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs text">Seq = [<br>  &lt;BOC&gt;, &lt;emb1-1&gt;, ..., &lt;emb1-P&gt;, &lt;EOC&gt;,<br>  &lt;BOC&gt;, &lt;emb2-1&gt;, ..., &lt;emb2-P&gt;, &lt;EOC&gt;,<br>  ...,<br>  &lt;BOT&gt;, &lt;Token1&gt;, &lt;Token2&gt;, ..., &lt;EOT&gt;<br>]<br><br>inputs_embeds = Seq[:-1]<br>target = Seq[1:]<br></code></pre></td></tr></table></figure>
+<p>其中 collate 后的数据形状类似：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">[B, #Chunk, Chunk_Length, #Sum_Keypoints, Channel]<br></code></pre></td></tr></table></figure>
+<p>每个 part 进入 GCN：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">[B * #Chunk, Chunk_Length, #Part_Keypoints, Channel]<br></code></pre></td></tr></table></figure>
+<p>GCN 输出：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">[B * #Chunk, #Part, Chunk_Length, D]<br></code></pre></td></tr></table></figure>
+<p>再将不同 part 在特征维拼接后送入 Transformer Encoder：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">[B * #Chunk, Chunk_Length, D * #Part]<br></code></pre></td></tr></table></figure>
+<p>Transformer 输出若干 chunk token：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">[B * #Chunk, #Token_Per_Chunk, E]<br></code></pre></td></tr></table></figure>
+<p>最后 reshape 成：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">[B, #Chunk, #Token_Per_Chunk, E]<br></code></pre></td></tr></table></figure>
+<p>再序列化成 LM 可消费的 embedding 序列。这个方案和前面的 body part
+embedding、GCN stream 是连贯的：既然手语动作强依赖身体部位结构，token
+化时也应该显式保留 part 维度，而不是把所有关键点当成一串无结构向量。</p>
+<h3 id="sign-token-排列方式">2026.03.24：Sign Token 排列方式</h3>
+<p>后续记录里对 Sign Token 的排列方式做了更具体的梳理。</p>
+<p>动作特征按部位拆分后分别进入 VAE：</p>
+<table>
+<thead>
+<tr>
+<th>部位</th>
+<th>特征维度</th>
+<th>VAE</th>
+<th>输出 shape</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>body</td>
+<td><code>[:30] + [120:] = 43</code> 维</td>
+<td><code>self.vae</code></td>
+<td><code>[T, Q]</code></td>
+</tr>
+<tr>
+<td>lhand</td>
+<td><code>[30:75] = 45</code> 维</td>
+<td><code>self.hand_vae</code></td>
+<td><code>[T, Q]</code></td>
+</tr>
+<tr>
+<td>rhand</td>
+<td><code>[75:120] = 45</code> 维</td>
+<td><code>self.rhand_vae</code></td>
+<td><code>[T, Q]</code></td>
+</tr>
+</tbody>
+</table>
+<p>其中 <span class="math inline">\(Q\)</span> 是量化层数，当前为 4 层
+LFQ。每个部位的 <code>[T, Q]</code> token 会先 flatten 为
+<code>[T * Q]</code>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">body:  [t0q0, t0q1, t0q2, t0q3, t1q0, ...]<br>lhand: [t0q0, t0q1, t0q2, t0q3, t1q0, ...]<br>rhand: [t0q0, t0q1, t0q2, t0q3, t1q0, ...]<br></code></pre></td></tr></table></figure>
+<p>然后三个部位 stack 成 <code>[T * Q, 3]</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">torch.stack([flat_body, flat_lhand, flat_rhand], dim=-<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>
+<p>最终序列化时按时间步交错，每个量化位置内按
+<code>body -&gt; lhand -&gt; rhand</code> 排列：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs text">&lt;motion_id_X&gt; &lt;hand_id_Y&gt; &lt;rhand_id_Z&gt;  # t0q0<br>&lt;motion_id_X&gt; &lt;hand_id_Y&gt; &lt;rhand_id_Z&gt;  # t0q1<br>&lt;motion_id_X&gt; &lt;hand_id_Y&gt; &lt;rhand_id_Z&gt;  # t0q2<br>&lt;motion_id_X&gt; &lt;hand_id_Y&gt; &lt;rhand_id_Z&gt;  # t0q3<br>&lt;motion_id_X&gt; &lt;hand_id_Y&gt; &lt;rhand_id_Z&gt;  # t1q0<br>...<br></code></pre></td></tr></table></figure>
+<p>也就是说，4 层量化层没有按层单独分组，而是 flatten 后交错排列。每 3
+个 token 对应同一个量化位置，连续 4
+组对应同一个时间帧。这个排列方式有一个好处：LM
+看到的是时间局部连续的多部位 token，而不是先看完整 body 再看完整
+hand。对动作建模来说，这更符合时序同步关系。</p>
+<h2 id="阶段七长视频与文档级评价">阶段七：长视频与文档级评价</h2>
+<p>后期还有两个分支。</p>
+<h3 id="长视频训练素材">长视频训练素材</h3>
+<p>记录中开始收集长视频训练素材，例如央视新闻频道节目。这说明任务可能不再局限于短句级识别，而是考虑更长、更真实的视频输入。长视频会带来几个新问题：</p>
 <ul>
-<li>用到的 mbart embedding 的分词和我们的分词肯定不太一样</li>
-<li>如果直接对我们的 gloss 词本
-embedding，那可能有的词会被分开，长度不一样</li>
+<li>视频读取和缓存效率；</li>
+<li>长序列 chunking；</li>
+<li>跨 chunk 的动作连续性；</li>
+<li>句子/段落边界；</li>
+<li>识别或生成结果的篇章级一致性。</li>
 </ul>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:f0708809-1d9d-43f5-a626-6ae1fccca918:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:92c452e2-bf0a-4377-88e8-db4007cebe7a:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
+<h3 id="document-level-metrics">Document-level metrics</h3>
+<p>传统 BLEU
+对短句翻译常用，但对长文本会失效。比如每句话内部词都对，但句子顺序全乱，普通
+BLEU 可能仍然给出不低分数。记录中关注了两个方向：</p>
 <ul>
-<li>尝试使用<strong>Sentence-BERT</strong></li>
+<li><strong>BlonDe</strong>：面向 document-level evaluation，把文本拆成
+document、paragraph、sentence、token 等层级，在不同层级上综合 BLEU
+和顺序一致性惩罚；</li>
+<li><strong>TER</strong>：Translation Edit Rate，不只考虑
+insert/delete/substitute，还考虑
+shift，适合评价“信息都在但顺序不同”的情况。</li>
 </ul>
-<h3 id="下一周工作">下一周工作</h3>
+<p>这条线和长视频训练素材是连着的：如果模型未来输出长段文本，只看 WER
+或句级 BLEU 不够，需要文档级指标评价跨句顺序、信息组织和篇章结构。</p>
+<h2 id="当前阶段性结论">当前阶段性结论</h2>
+<h3 id="ctc-不是唯一瓶颈">1. CTC 不是唯一瓶颈</h3>
+<p>CTC 有 peaky prediction 和弱对齐问题，但人为构造良好 feature
+后，简单分类器也能产生较好的 decode。这说明当前最大瓶颈很可能在 feature
+表示，而不是 CTC 公式本身。</p>
+<h3 id="关键点预处理非常敏感">2. 关键点预处理非常敏感</h3>
+<p>mean/std、中心化方法、cover
+ratio、不同部位尺度都会改变动作差异。虽然已有中心化对比的 silhouette
+score 差异不大，但这些实验说明必须把 preprocessing
+当成模型的一部分看待。</p>
+<h3 id="人体结构先验需要显式建模">3. 人体结构先验需要显式建模</h3>
+<p>简单 MLP + Transformer
+很可能没有充分利用骨架拓扑和左右手/身体的结构关系。body part
+embedding、ST-GCN stream、多部位 VAE 和 Sign Token
+分部位排列，都是在往这个方向靠。</p>
+<h3 id="识别对齐token-化是同一条链">4. 识别、对齐、token
+化是同一条链</h3>
+<p>早期的 CTC/force alignment 解决的是 gloss 边界问题；后期的 RVQ/Sign
+Token 解决的是动作离散表示问题。两者不冲突：前者帮助理解动作与 gloss
+的时间关系，后者帮助把动作表示接入 LM。</p>
+<h3 id="长视频会要求新的工程和评价体系">5.
+长视频会要求新的工程和评价体系</h3>
+<p>短句级 WER 仍然重要，但长视频场景还需要高效 loader、chunk-level
+tokenization、跨 chunk 建模，以及 BlonDe/TER 这类 document-level
+metrics。</p>
+<h2 id="后续工作建议">后续工作建议</h2>
+<ol type="1">
+<li><p><strong>先固定一个强 baseline</strong><br>
+至少保留 Two Stream 或 ST-GCN 级别的对照，避免只在自建 pure CTC
+结构里循环调参。</p></li>
+<li><p><strong>系统做 feature 可分性诊断</strong><br>
+对每个版本输出 silhouette score、同类/异类 cosine distance、UMAP/t-SNE
+可视化和 CTC WER，建立 feature quality
+与最终识别性能的对应关系。</p></li>
+<li><p><strong>把 preprocessing 纳入 ablation 表</strong><br>
+系统比较中心化方式、尺度归一化、std 缩放、部位加权、cover
+ratio、是否保留全身关键点，而不是零散可视化。</p></li>
+<li><p><strong>优先验证部位结构建模</strong><br>
+继续推进 ST-GCN stream、body/hand 分支、part embedding、多部位
+VAE。手语识别里左右手和身体姿态不是等价坐标点，结构先验应该显式进入模型。</p></li>
+<li><p><strong>改进 decode 和 alignment，但不要让它背锅</strong><br>
+beam size、language model rescoring、blank penalty、force alignment
+的开始/结束边界规则都值得做，但前提是概率矩阵和 feature
+已经足够可分。</p></li>
+<li><p><strong>将 Sign Token 序列化和 LM 训练目标打通</strong><br>
+当前 body/lhand/rhand
+交错排列是合理的，但需要继续验证：这种排列是否比按部位分块、按量化层分块、或按
+chunk 分块更利于 LM 学习。</p></li>
+<li><p><strong>为长视频建立评价协议</strong><br>
+短句用 WER/CER，长文本补充 BlonDe、TER 或类似 document-level
+metrics，并记录句子边界、段落顺序和信息遗漏。</p></li>
+</ol>
+<h2 id="原始-notion-索引">原始 Notion 索引</h2>
 <ul>
-<li>也许可以再调调 label priors 方法的参数</li>
-<li>用 sentence-bert 把现在的单词本 encoding 一遍，然后开始使用 VAP
-的方法训练</li>
-</ul>
-<h2 id="section-3">2025.03.21</h2>
-<h3 id="上一周的工作-1">上一周的工作</h3>
-<ul>
-<li>VAP 训练</li>
-</ul>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:ee7a4824-02f2-461b-8c6b-aaf1db863e87:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<p>但实际切片效果不行</p>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:2e063b2e-18c5-4dca-b6e3-3538ecb21ce1:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<figure>
-<img src="/2025/05/27/group_meeting/group_meeting//attachment:ab538ce2-ce45-4e6c-8f40-b66422076a26:image.png" srcset="/img/loading.gif" lazyload alt="image.png">
-<figcaption aria-hidden="true">image.png</figcaption>
-</figure>
-<ul>
-<li>CTC</li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/1a95661a967280ba9df9d9f9870f14f3">组会总目录</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/1a95661a96728055b165cff32bfa029f">3.1</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/1af5661a9672807393e9c46e5a008de6">3.7</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/1b65661a967280039da9cdbb6aefd2da">3.14</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/1bc5661a967280d89064e7b0e0766eef">3.21</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2165661a96728028a465c025e3f5fa63">算法review</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2225661a9672806ebd00dff835dd8342">6.30</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/22b5661a967280049363c6398a5b1e83">7.10</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/22f5661a967280a682c7f4d58cf7c14b">7.13</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2345661a967280faa8fefcd36880962c">7.18</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2345661a96728013bcdbe161dee783fa">7.19</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2385661a967280d1914fdb7b67528677">7.22</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/23b5661a967280da9fa2e00ad8e79022">7.25</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2405661a96728094bfd9f99533f6dece">7.30</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2455661a9672800f8f0ac5d5e18172d5">8.4</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2495661a96728004a3f6d1e902a41e36">8.8</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/26a5661a96728034b80bfccb84f9d329">9.9</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/26c5661a9672809aa7c1c38f3533a865">9.11</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2775661a96728031a484fe90d6e37a29">9.22</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2cd5661a967280fda7f6f50474a18134">document
+level metrics</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/2cf5661a967280418eded6695c859047">长视频训练素材</a></li>
+<li><a target="_blank" rel="noopener" href="https://app.notion.com/p/32d5661a96728086b4e4d29c0788f764">0324</a></li>
 </ul>
 
                 
